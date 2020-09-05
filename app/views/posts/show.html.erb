@@ -1,2 +1,4 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>photo details</h1>
+
+<%= attachment_image_tag @post, :image, :fill, 300, 300 %>
+<%= @post.description %>

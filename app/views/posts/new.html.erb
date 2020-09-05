@@ -1,2 +1,26 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@post) do |f| %>
+  <div>
+    <%= f.label :image %>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
