@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   validates :image, presence: true
-  validates :description, length: {maximum: 1000}
+  validates :description, length: { maximum: 1000 }
 
   attachment :image
 end

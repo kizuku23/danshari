@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
-  validates :name, presence: true, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 1000}
+  validates :name, presence: true, length: { maximum: 20, minimum: 2 }, uniqueness: true
+  validates :introduction, length: { maximum: 1000 }
 
   attachment :profile_image, destroy: false
 end

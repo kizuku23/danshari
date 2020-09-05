@@ -10,5 +10,4 @@ class RelationshipsControllerTest < ActionDispatch::IntegrationTest
     get relationships_followed_url
     assert_response :success
   end
-
 end
