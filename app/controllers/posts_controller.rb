@@ -30,6 +30,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -39,8 +43,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def destroy
     @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
