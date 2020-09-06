@@ -2,3 +2,6 @@
 
 <%= attachment_image_tag @post, :image, :fill, 300, 300 %>
 <%= @post.description %>
+<% if @post.user == current_user %>
+  <%= link_to '編集', edit_post_path(@post) %>
+<% end %>
