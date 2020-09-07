@@ -81,6 +81,45 @@ main {
 }
 
 .main-content {
-  width: 880px;
+  width: 980px;
   margin-top: 130px; /*後で調整*/
 }
+
+.headline {
+  padding-bottom: 30px;
+}
+
+.post-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 15px;
+  list-style: none;
+}
+
+.post {
+  margin: 0 20px 20px 0;
+}
+
+.info {
+  width: 100%;
+  text-align: right;
+}
+
+.info-font {
+  font-size: 10px;
+}
+
+.info-name {
+  padding-left: 5px;
+  font-size: 13px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.img {
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.6);
+}
+

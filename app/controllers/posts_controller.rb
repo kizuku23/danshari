@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user, except: [:top, :about]
+  before_action :authenticate_user!, except: [:top, :about]
 
   def top
     @posts = Post.all
