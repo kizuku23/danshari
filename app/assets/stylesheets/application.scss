@@ -86,7 +86,13 @@ main {
 }
 
 .headline {
+  display: flex;
+  justify-content: space-between;
   padding-bottom: 30px;
+}
+
+.btn {
+  margin-right: 22px;
 }
 
 .post-grid {
@@ -98,7 +104,7 @@ main {
 }
 
 .post {
-  margin: 0 20px 20px 0;
+  margin: 0 22px 20px 0;
 }
 
 .info {
@@ -122,4 +128,5 @@ main {
 .img {
   box-shadow: 8px 8px 8px rgba(0,0,0,0.6);
 }
+
 

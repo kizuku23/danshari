@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
 
   def top
-    @posts = Post.all
+    @posts = Post.limit(8).order(id: 'DESC')
   end
 
   def about
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: 'DESC')
   end
 
   def new
