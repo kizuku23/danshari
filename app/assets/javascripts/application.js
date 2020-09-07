@@ -13,4 +13,19 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+//= require jquery.jscroll.min.js
+
+// jscroll, kaminariでスクロール
+
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    $('.post-grid').jscroll({
+      contentSelector: '.post-grid',
+      nextSelector: 'span.next a',
+      loadingHtml: 'Now Loading'
+    });
+  });
+});

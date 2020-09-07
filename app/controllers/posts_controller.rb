@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(id: 'DESC')
+    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(8)
   end
 
   def new
