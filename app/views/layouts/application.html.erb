@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DanshariApp</title>
+    <title>danshari</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,38 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <div class="sidebar">
+        <div class="logo">
+          <%= image_tag 'logo.png', size: '180x130' %>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-contents">
+            <% if user_signed_in? %>
+              <li class="nav"><%= link_to 'Home', root_path, class: 'link-style' %></li>
+              <li class="nav"><%= link_to 'Upload Photo', new_post_path, class: 'link-style' %></li>
+              <li class="nav"><%= link_to current_user.name, user_path(current_user), class: 'link-style' %></li>
+              <li class="nav"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link-style' %></li>
+            <% else %>
+              <li class="nav"><%= link_to 'Home', root_path, class: 'link-style' %></li>
+              <li class="nav"><%= link_to 'About', about_path, class: 'link-style' %></li>
+              <li class="nav"><%= link_to 'Login', new_user_session_path, class: 'link-style' %></li>
+            <% end %>
+          </ul>
+          <div class="sns">
+            <p class="sns-header">SNS</p>
+            <i class="jquery3 fab fa-instagram fa-2x"></i><br>
+            <i class="jquery1 fab fa-twitter fa-2x"></i><br>
+            <i class="jquery2 fab fa-facebook fa-2x"></i>
+          </div>
+        </nav>
+
+      </div>
+      <div class="main-content">
+
+        <%= yield %>
+
+      </div>
+    </main>
   </body>
 </html>
