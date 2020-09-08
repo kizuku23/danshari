@@ -16,6 +16,52 @@
         <div class="logo">
           <%= image_tag 'logo.png', size: '180x130' %>
         </div>
+<!-- navの中にネスト　後で -->
+        <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
+          <div class="user-profile">
+            <%= attachment_image_tag(current_user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
+            <br>
+            <div class="name"><%= current_user.name %></div>
+            <div class="profile-list">
+              <div class="profiles">
+                <span class="profile"><%= current_user.layout %></span>
+                <span class="profile"><%= current_user.area %></span>
+                <span class="profile"><%= current_user.status %></span>
+              </div>
+            <div class="profile-list">
+              <div class="profiles">
+                <span class="profile"><%= current_user.age %></span>
+                <span class="profile"><%= current_user.gender %></span>
+              </div>
+            </div>
+            </div>
+
+            <table class="profile-list-count profile">
+              <tbody>
+                <tr>
+                  <td>すべての写真</td>
+                  <td><%= current_user.posts.count %></td>
+                </tr>
+                <tr>
+                  <td>フォロー</td>
+                </tr>
+                <tr>
+                  <td>フォロワー</td>
+                </tr>
+                <tr>
+                  <td>いいねした写真</td>
+                  <td><%= current_user.likes.count %></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="introduction">
+              <div class="profile-header"><h4>自己紹介</h4></div>
+              <div class="profile"><%= current_user.introduction %></div>
+            </div>
+          </div>
+        <% end %>
+
         <nav class="main-nav">
           <ul class="nav-contents">
             <% if user_signed_in? %>

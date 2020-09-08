@@ -40,14 +40,42 @@ main {
 
 .sidebar {
   width: 200px;
-  margin-right: 20px;
 }
 
 .logo {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  display: block;
+  margin: 0 auto;
+  width: 180px;
   height: 130px;
+}
+
+.user-profile {
+  //position: -webkit-sticky;
+  //position: sticky;
+  //top: 130px;
+  padding-top: 20px;
+}
+
+.name {
+  text-align: center;
+  font-size: 15px;
+}
+
+.profiles {
+  text-align: center;
+}
+
+.profile {
+  font-size: 12px;
+}
+
+.profile-list-count, .introduction {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .main-nav {
@@ -55,7 +83,8 @@ main {
   position: sticky;
   top: 130px;
   padding-top: 50px;
-  padding-left: 25px;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .nav-contents {
@@ -133,6 +162,11 @@ main {
 .info-name {
   padding-left: 5px;
   font-size: 13px;
+}
+
+.img {
+  display: block;
+  margin: 0 auto;
 }
 
 .img-circle {
