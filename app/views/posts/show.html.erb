@@ -1,20 +1,26 @@
-<h1>photo details</h1>
+<%= render 'users/sidebar' %>
 
-<%= attachment_image_tag @post, :image, :fill, 300, 300 %>
-<%= @post.description %>
-<% if @post.user == current_user %>
-  <%= link_to '編集', edit_post_path(@post) %>
-  <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'} %>
-<% end %>
+<div class="main-content">
 
-<div class="like likes_buttons_<%= @post.id %>">
-  <%= render 'likes/like', post: @post %>
-</div>
+  <h1>photo details</h1>
 
-<table id="comments_area">
-  <%= render 'post_comments/index', post_comments: @post_comments %>
-</table>
+  <%= attachment_image_tag @post, :image, :fill, 300, 300 %>
+  <%= @post.description %>
+  <% if @post.user == current_user %>
+    <%= link_to '編集', edit_post_path(@post) %>
+    <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'} %>
+  <% end %>
 
-<div class="comment-form">
-  <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+  <div class="like likes_buttons_<%= @post.id %>">
+    <%= render 'likes/like', post: @post %>
+  </div>
+
+  <table id="comments_area">
+    <%= render 'post_comments/index', post_comments: @post_comments %>
+  </table>
+
+  <div class="comment-form">
+    <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+  </div>
+
 </div>

@@ -1,28 +1,32 @@
-<h1>Posts#edit</h1>
+<%= render 'users/sidebar' %>
 
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="main-content">
+  <h1>Posts#edit</h1>
 
-<%= form_for(@post) do |f| %>
-  <div>
-    <%= f.label :image %>
-    <%= f.attachment_field :image %>
-  </div>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <%= form_for(@post) do |f| %>
+    <div>
+      <%= f.label :image %>
+      <%= f.attachment_field :image %>
+    </div>
 
-  <div>
-    <%= f.submit '変更を保存' %>
-  </div>
-<% end %>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.submit '変更を保存' %>
+    </div>
+  <% end %>
+</div>

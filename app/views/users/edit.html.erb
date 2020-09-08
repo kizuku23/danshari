@@ -1,64 +1,67 @@
-<h1>Users#edit</h1>
+<%= render 'users/sidebar', user: @user %>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="main-content">
+  <h1>Users#edit</h1>
 
-<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.label 'プロフィール画像' %>
-    <%= f.attachment_field :profile_image %>
-  </div>
+  <%= form_for(@user) do |f| %>
+    <div>
+      <%= f.label 'プロフィール画像' %>
+      <%= f.attachment_field :profile_image %>
+    </div>
 
-  <div>
-    <%= f.label 'お名前' %>
-    <%= f.text_field :name %>
-  </div>
+    <div>
+      <%= f.label 'お名前' %>
+      <%= f.text_field :name %>
+    </div>
 
-  <div>
-    <%= f.label 'メールアドレス' %>
-    <%= f.text_field :email %>
-  </div>
+    <div>
+      <%= f.label 'メールアドレス' %>
+      <%= f.text_field :email %>
+    </div>
 
-  <div>
-    <%= f.label '性別' %>
-    <%= f.select :gender, User.genders.keys.map { |k| [k, k]} %>
-  </div>
+    <div>
+      <%= f.label '性別' %>
+      <%= f.select :gender, User.genders.keys.map { |k| [k, k]} %>
+    </div>
 
- <div>
-    <%= f.label '年代' %>
-    <%= f.select :age, User.ages.keys.map { |k| [k, k]} %>
-  </div>
+    <div>
+      <%= f.label '年代' %>
+      <%= f.select :age, User.ages.keys.map { |k| [k, k]} %>
+    </div>
 
-  <div>
-    <%= f.label '居住形態' %>
-    <%= f.select :status, User.statuses.keys.map { |k| [k, k]} %>
-  </div>
+    <div>
+      <%= f.label '居住形態' %>
+      <%= f.select :status, User.statuses.keys.map { |k| [k, k]} %>
+    </div>
 
-  <div>
-    <%= f.label '間取り' %>
-    <%= f.select :layout, User.layouts.keys.map { |k| [k, k]} %>
-  </div>
+    <div>
+      <%= f.label '間取り' %>
+      <%= f.select :layout, User.layouts.keys.map { |k| [k, k]} %>
+    </div>
 
-  <div>
-    <%= f.label '広さ' %>
-    <%= f.select :area, User.areas.keys.map { |k| [k, k]} %>
-  </div>
+    <div>
+      <%= f.label '広さ' %>
+      <%= f.select :area, User.areas.keys.map { |k| [k, k]} %>
+    </div>
 
-  <div>
-    <%= f.label '自己紹介' %>
-    <%= f.text_area :introduction %>
-  </div>
+    <div>
+      <%= f.label '自己紹介' %>
+      <%= f.text_area :introduction %>
+    </div>
 
-  <div>
-    <%= f.submit '変更を保存' %>
-  </div>
-<% end %>
+    <div>
+      <%= f.submit '変更を保存' %>
+    </div>
+  <% end %>
+</div>

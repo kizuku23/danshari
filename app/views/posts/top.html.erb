@@ -1,25 +1,31 @@
-<div class="headline">
-  <h3>Recent Posts</h3>
-  <%= link_to 'see more', posts_path, class: "btn link-style" %>
-</div>
+<%= render 'users/sidebar' %>
 
-<div class="content">
-  <ul class="post-grid">
-    <% @posts.each do |post| %>
-    <li class="post">
-      <div class="info">
-        <span class="info-font"> photo by</span><span class="info-name"><%= post.user.name%></span>
+<div class="main-content">
+  <div class="headline">
+    <h3>Recent Posts</h3>
+    <%= link_to 'see more', posts_path, class: "btn link-style" %>
+  </div>
 
-        <%= link_to(post.user) do %>
-          <%= attachment_image_tag(post.user, :profile_image, fallback: 'no-image.jpg', size: '35x35', class: "img-circle") %>
-        <% end %>
-      </div>
-
-      <%= link_to(post) do %>
-        <%= attachment_image_tag post, :image, :fill, 200, 200, class: "img" %>
+  <div class="content">
+    <ul class="post-grid">
+      <% @posts.each do |post| %>
+      <li class="post">
+        <div class="post-info">
+          <div class="info">
+            <span class="info-font"> photo by</span>
+            <span class="info-name"><%= post.user.name%></span>
+            <%= link_to(post.user) do %>
+              <%= attachment_image_tag(post.user, :profile_image, fallback: 'no-image.jpg', size: '35x35', class: "img-circle") %>
+            <% end %>
+          </div>
+        </div>
+        <div class="img-wrapper">
+          <%= link_to(post) do %>
+            <%= attachment_image_tag post, :image, :fill, 200, 200, class: "img-shadow" %>
+          <% end %>
+        </div>
+      </li>
       <% end %>
-
-    </li>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
 </div>

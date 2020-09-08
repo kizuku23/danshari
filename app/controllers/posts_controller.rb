@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
 
   def top
-    @posts = Post.limit(8).order(id: 'DESC')
+    @posts = Post.limit(6).order(id: 'DESC')
   end
 
   def about
   end
 
   def index
-    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(8)
+    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(9)
     @like = Like.new
   end
 

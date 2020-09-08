@@ -33,13 +33,14 @@ body {
 
 main {
   display: flex;
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
   min-height: 100vh;
 }
 
 .sidebar {
   width: 200px;
+  margin-right: 30px;
 }
 
 .logo {
@@ -116,14 +117,18 @@ main {
 }
 
 .main-content {
-  width: 980px;
-  margin-top: 130px; /*後で調整*/
+  width: 100%;
+  margin: 130px auto 0;
 }
 
 .headline {
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
+}
+
+.content {
+  width: 100%;
 }
 
 .btn {
@@ -134,7 +139,7 @@ main {
   display: flex;
   flex-wrap: wrap;  //折り返し可
   width: 100%;
-  padding: 0;
+  //padding: 0;
   font-size: 15px;
   list-style: none;
 }
@@ -143,7 +148,7 @@ main {
 // 2ページ目以降はpost-gridで効かせている
 
 .post {
-  margin: 0 22px 20px 0;
+  margin: 0 25px 25px 0;
 }
 
 .post-info {

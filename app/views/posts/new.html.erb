@@ -1,26 +1,30 @@
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'users/sidebar' %>
 
-<%= form_for(@post) do |f| %>
-  <div>
-    <%= f.label :image %>
-    <%= f.attachment_field :image %>
-  </div>
+<div class="main-content">
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <%= form_for(@post) do |f| %>
+    <div>
+      <%= f.label :image %>
+      <%= f.attachment_field :image %>
+    </div>
 
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
