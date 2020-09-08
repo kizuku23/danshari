@@ -6,7 +6,7 @@ class PostCommentsController < ApplicationController
     @post_comment = current_user.post_comments.new(post_comment_params)
     @post_comment.post_id = @post.id
     if @post_comment.save
-      redirect_to post_path(@post)
+      render :index
     end
   end
 
@@ -14,7 +14,7 @@ class PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comment = current_user.post_comments.find_by(id: params[:id], post_id: @post.id)
     @post_comment.destroy
-    redirect_to post_path(@post)
+    render :index
   end
 
   private

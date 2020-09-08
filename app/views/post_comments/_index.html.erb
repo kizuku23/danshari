@@ -8,7 +8,7 @@
     </td>
     <td class="show-comment"><%= post_comment.comment %></td>
     <% if current_user == post_comment.user %>
-      <td><%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete %></td>
+      <td><%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete, remote: true %></td>
     <% end %>
   </tr>
 <% end %>
