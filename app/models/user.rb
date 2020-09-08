@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+  has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
+  has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+
   validates :name, presence: true, length: { maximum: 20, minimum: 2 }, uniqueness: true
   validates :introduction, length: { maximum: 1000 }
 
@@ -33,4 +38,18 @@ class User < ApplicationRecord
     '60~70㎡': 10, '70~80㎡': 11, '80~90㎡': 12, '90~100㎡': 13, '100~200㎡': 14,
     '200~300㎡': 15, '300~400㎡': 16, '400~500㎡': 17, '500㎡~': 18,
   }, _prefix: :area
+
+  def follow(user_id)
+    follower.create(followed_id: user_id)
+  end
+
+  # ユーザーのフォローを外す
+  def unfollow(user_id)
+    follower.find_by(followed_id: user_id).destroy
+  end
+
+  # フォローしていればtrueを返す
+  def following?(user)
+    following_user.include?(user)
+  end
 end
