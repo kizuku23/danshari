@@ -103,7 +103,7 @@ main {
 
 .post-grid, .jscroll-inner {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;  //折り返し可
   width: 100%;
   padding: 0;
   font-size: 15px;
@@ -115,6 +115,10 @@ main {
 
 .post {
   margin: 0 22px 20px 0;
+}
+
+.post-info {
+  display: flex;
 }
 
 .info {
@@ -135,7 +139,11 @@ main {
   border-radius: 50%;
 }
 
-.img {
+.img-wrapper {
+  display: block;
+}
+
+.img-shadow {
   box-shadow: 8px 8px 8px rgba(0,0,0,0.6);
 }
 
