@@ -10,3 +10,11 @@
 <div class="like likes_buttons_<%= @post.id %>">
   <%= render 'likes/like', post: @post %>
 </div>
+
+<table class="comments_area" >
+  <%= render 'post_comments/index', post_comments: @post_comments %>
+</table>
+
+<div class="comment-form">
+  <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+</div>

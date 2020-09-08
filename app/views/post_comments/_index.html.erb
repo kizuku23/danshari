@@ -1,0 +1,14 @@
+<% post_comments.each do |post_comment| %>
+  <tr>
+    <td class="show-comment">
+      <%= link_to user_path(post_comment.user), class: "user_#{post_comment.user.id}" do %>
+        <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no-image.jpg", size: "50x50" %><br>
+        <%= post_comment.user.name %>
+      <% end %>
+    </td>
+    <td class="show-comment"><%= post_comment.comment %></td>
+    <% if current_user == post_comment.user %>
+      <td><%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
