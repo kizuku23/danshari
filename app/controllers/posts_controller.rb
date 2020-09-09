@@ -9,8 +9,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(id: 'DESC').page(params[:page]).per(9)
-    @like = Like.new
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}").order(id: 'DESC').page(params[:page]).per(9)
+      @like = Like.new
+    else
+      @posts = Post.all.order(id: 'DESC').page(params[:page]).per(9)
+      @like = Like.new
+    end
   end
 
   def new
@@ -56,6 +61,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :description)
+    params.require(:post).permit(:image, :description, :tag_list)
   end
 end

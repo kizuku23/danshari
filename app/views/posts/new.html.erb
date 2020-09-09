@@ -14,12 +14,18 @@
 
   <%= form_for(@post) do |f| %>
     <div>
-      <%= f.label :image %>
+      <%= f.label :写真をアップロードする %>
       <%= f.attachment_field :image %>
     </div>
 
     <div>
-      <%= f.label :description %>
+      <%= f.label 'タグを追加する（ ,で複数追加可能）' %>
+      <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
+      <%= f.submit '追加' %>
+    </div>
+
+    <div>
+      <%= f.label :コメントを追加する %>
       <%= f.text_area :description %>
     </div>
 

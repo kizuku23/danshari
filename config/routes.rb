@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'posts#top'
   get 'about' => 'posts#about'
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]

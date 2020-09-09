@@ -5,6 +5,11 @@
   <h1>photo details</h1>
 
   <%= attachment_image_tag @post, :image, :fill, 300, 300 %>
+
+  <div class="badge-group">
+    <%= render 'posts/tag_list', tag_list: @post.tag_list %>
+  </div>
+
   <%= @post.description %>
   <% if @post.user == current_user %>
     <%= link_to '編集', edit_post_path(@post) %>
