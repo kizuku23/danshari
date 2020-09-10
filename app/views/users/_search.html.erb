@@ -1,0 +1,7 @@
+<div class="search">
+  <%= form_tag(search_path, method: :get, class: "sform") do %>
+    <%= select_tag(:option, options_for_select([['写真を検索','1'],['ユーザーを検索', '2']]))%>
+    <%= text_field_tag :search, '', placeholder: 'キーワードを入力', class: "sbox" %>
+    <%= button_tag sanitize('<i class="fas fa-search"></i>'), :type => 'submit', class: "sbtn" %>
+  <% end %>
+</div>

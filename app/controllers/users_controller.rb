@@ -28,6 +28,15 @@ class UsersController < ApplicationController
   def followers
   end
 
+  def search
+    @user_or_post = params[:option]
+    if @user_or_post == "1"
+      @posts = Post.search(params[:search], @user_or_post).order(id: 'DESC').page(params[:page]).per(9)
+    else
+      @users = User.search(params[:search], @user_or_post)
+    end
+  end
+
   private
 
   def user_params

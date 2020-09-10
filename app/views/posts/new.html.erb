@@ -1,6 +1,9 @@
 <%= render 'users/sidebar' %>
 
 <div class="main-content">
+
+  <%= render 'users/search' %>
+
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'posts#top'
   get 'about' => 'posts#about'
   get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'search' => 'users#search'
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]

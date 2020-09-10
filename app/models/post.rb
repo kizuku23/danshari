@@ -13,4 +13,12 @@ class Post < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
+
+  def Post.search(search, user_or_post)
+    if user_or_post == "1"
+      Post.where(['description LIKE ?', "%#{search}%"])
+    else
+      Post.all
+    end
+  end
 end
