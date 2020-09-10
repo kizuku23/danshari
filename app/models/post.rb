@@ -21,4 +21,15 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes'
+      return joins(:likes).group(:post_id).order('count(post_id) desc')
+    end
+  end
 end
