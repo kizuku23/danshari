@@ -8,35 +8,6 @@
     <h3><%= @user.name %> さんの写真</h3>
   </div>
 
-  <div class="content">
-    <ul class="post-grid">
-      <% @posts.each do |post| %>
-      <li class="post">
-        <!-- いいね機能 -->
-        <div class="post-info">
-          <div class="like likes_buttons_<%= post.id %>">
-            <%= render 'likes/like', post: post %>
-          </div>
-          <!-- /いいね機能 -->
-          <div class="count">
-            <i class="far fa-comment"><%= post.post_comments.count %></i>
-          </div>
-          <div class="info">
-            <span class="info-font"> photo by</span>
-            <span class="info-name"><%= post.user.name%></span>
-            <%= link_to(post.user) do %>
-              <%= attachment_image_tag(post.user, :profile_image, fallback: 'no-image.jpg', size: '35x35', class: "img-circle") %>
-            <% end %>
-          </div>
-        </div>
-        <div class="img-wrapper">
-          <%= link_to(post) do %>
-            <%= attachment_image_tag post, :image, :fill, 200, 200, class: "img-shadow" %>
-          <% end %>
-        </div>
-      </li>
-      <% end %>
-      <%= paginate @posts %>
-    </ul>
-  </div>
+  <%= render 'posts/index', posts: @posts %>
+
 </div>
