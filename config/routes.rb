@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'search' => 'users#search'
   get 'sort' => 'posts#sort'
+  get   'inquiry' => 'inquiry#index'
+  post  'inquiry/confirm' => 'inquiry#confirm'
+  post  'inquiry/thanks' => 'inquiry#thanks'
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]

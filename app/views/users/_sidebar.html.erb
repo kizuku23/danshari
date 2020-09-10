@@ -73,10 +73,12 @@
         <li class="nav"><%= link_to 'Upload Photo', new_post_path, class: 'link-style' %></li>
         <li class="nav"><%= link_to current_user.name, user_path(current_user), class: 'link-style' %></li>
         <li class="nav"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li>
       <% else %>
         <li class="nav"><%= link_to 'Home', root_path, class: 'link-style' %></li>
         <li class="nav"><%= link_to 'About', about_path, class: 'link-style' %></li>
         <li class="nav"><%= link_to 'Login', new_user_session_path, class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li>
       <% end %>
     </ul>
     <div class="sns">
