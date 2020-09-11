@@ -1,12 +1,16 @@
-<%= render 'users/sidebar' %>
+<div class="container">
 
-<div class="main-content">
+  <%= render 'users/sidebar' %>
 
-  <div class="headline">
-    <h3>すべての写真</h3>
-    <%= render 'posts/sort' %>
+  <div class="main-content">
+
+    <div class="headline">
+      <h3>すべての写真</h3>
+      <%= render 'posts/sort' %>
+    </div>
+
+    <%= render 'posts/index', posts: @posts %>
+
   </div>
-
-  <%= render 'posts/index', posts: @posts %>
 
 </div>

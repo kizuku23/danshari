@@ -7,20 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   </head>
 
   <body>
     <header>
-      <div class="wrapper">
+      <div class="header">
         <div class="logo">dan sha ri</div>
         <%= render 'users/search' %>
       </div>
     </header>
-    <main>
 
-      <%= yield %>
+    <%= yield %>
 
-    </main>
   </body>
 </html>
