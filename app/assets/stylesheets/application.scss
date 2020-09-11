@@ -16,8 +16,7 @@
 
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Rajdhani:wght@300;400&display=swap');
 
 * {
   margin: 0;
@@ -27,7 +26,7 @@
 
 
 body {
-  //font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #3d5572;
   background-color: #f9f9f9;
 }
@@ -92,22 +91,25 @@ main {
 }
 
 .sidebar {
-  width: 200px;
-  margin-right: 40px;
+  width: 160px;
+  margin-right: 80px;
 }
 
 // ユーザー詳細画面で表示
 
 .user-profile {
-  //position: -webkit-sticky;
-  //position: sticky;
-  //top: 130px;
   padding-top: 20px;
+}
+
+.profile-header {
+  width: 100%;
+  margin: 30px auto;
+  border-bottom: solid 1px #3d5572;
 }
 
 .name {
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .profiles {
@@ -130,9 +132,9 @@ main {
 }
 
 .profile-list-count, .introduction {
-  width: 70%;
+  //width: 70%;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 // ここまで
@@ -141,12 +143,13 @@ main {
   position: -webkit-sticky;
   position: sticky;
   top: 100px;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .nav-contents {
-  font-size: 17px;
+  font-size: 20px;
   list-style: none;
 }
 
@@ -154,14 +157,30 @@ main {
   margin: 10px 0;
 }
 
+.menu {
+  //padding-bottom: 2px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #3d5572;
+}
+
 .link-style {
   text-decoration: none;
   color: #3d5572;
+  transition: color 0.2s;
+}
+
+.link-style:hover{
+  color :#b0c4de;
+}
+
+
+.i, .fas {
+  font-size: 0.7em;
 }
 
 .sns {
   position: relative;
-  top: 370px;
+  top: 320px;
   font-size: 12px;
 }
 

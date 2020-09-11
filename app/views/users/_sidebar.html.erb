@@ -2,6 +2,7 @@
 
   <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
     <div class="user-profile">
+      <div class="profile-header">PROFILE</div>
       <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
       <br>
       <div class="name"><%= user.name %></div>
@@ -56,17 +57,20 @@
 
   <nav class="main-nav">
     <ul class="nav-contents">
+      <li class="nav menu">MENU</li>
       <% if user_signed_in? %>
-        <li class="nav"><%= link_to 'Home', root_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'Upload Photo', new_post_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to current_user.name, user_path(current_user), class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'HOME', root_path, class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'PROFILE', user_path(current_user), class: 'link-style' %> <i class="fas fa-user-circle"></i></li>
+        <li class="nav"><%= link_to 'UPLOAD', new_post_path, class: 'link-style' %> <i class="fas fa-image"></i></li>
+        <br>
         <li class="nav"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li>
+        <!-- <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li> -->
       <% else %>
-        <li class="nav"><%= link_to 'Home', root_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'About', about_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'Login', new_user_session_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'HOME', root_path, class: 'link-style' %></li>
+        <li class="nav"><%= link_to 'ABOUT', about_path, class: 'link-style' %></li>
+        <br>
+        <li class="nav"><%= link_to 'Login', new_user_session_path, class: 'link-style' %> <i class="fas fa-sign-in-alt"></i></li>
+       <!--  <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li> -->
       <% end %>
     </ul>
     <div class="sns">
