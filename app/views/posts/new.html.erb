@@ -1,41 +1,46 @@
-<div class="container">
+<div id="container">
 
-<%= render 'users/sidebar' %>
+  <%= render 'users/sidebar' %>
 
-<div class="main-content">
-
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form_for(@post) do |f| %>
-    <div>
-      <%= f.label :写真をアップロードする %>
-      <%= f.attachment_field :image %>
+  <div id="main-contents">
+    <div id="headline">
+      <h3>新規投稿</h3>
     </div>
 
-    <div>
-      <%= f.label 'タグを追加する（ ,で複数追加可能）' %>
-      <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
-      <%= f.submit '追加' %>
-    </div>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-    <div>
-      <%= f.label :コメントを追加する %>
-      <%= f.text_area :description %>
-    </div>
+    <%= form_for(@post) do |f| %>
+      <div class="photo">
+        <%= f.label :写真をアップロードする %>
+        <%= f.attachment_field :image %>
+      </div>
 
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
+      <table class="table3">
+        <tr>
+          <th>タグ名</th>
+          <td>
+            <p> カンマ区切り( , )で複数登録できます</p>
+            <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "fields" %>
+          </td>
+        </tr>
+        <tr>
+          <th>コメント</th>
+          <td><%= f.text_area :description, class: "fields" %></td>
+        </tr>
+      </table>
 
+      <div>
+        <%= f.submit '変更を保存', class: "pbtn" %>
+      </div>
+    <% end %>
+  </div>
 </div>

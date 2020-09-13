@@ -1,9 +1,9 @@
 <% if post.liked_by?(current_user) %>
   <%= link_to post_likes_path(post), method: :delete, remote: true do %>
-    <i class="fas fa-heart"><%= post.likes.count%></i>
+    <i class="fas fa-heart red"><span class="count"><%= post.likes.count%> いいね</span></i>
   <% end %>
 <% else %>
   <%= link_to post_likes_path(post), method: :post, remote: true do %>
-    <i class="far fa-heart"><%= post.likes.count %></i>
+    <i class="far fa-heart hover-red"><span class="count"><%= post.likes.count %> いいね</span></i>
   <% end %>
 <% end %>

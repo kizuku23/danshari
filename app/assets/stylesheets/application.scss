@@ -18,28 +18,49 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Rajdhani:wght@300;400&display=swap');
 
+//---変数設定---
+
+$main-color: #3d5572;
+$hov-color: #b0c4de;
+$color-grey: #666;
+$color-red: #dc3c36;
+$background: #f9f9f9;
+$cmt-background: #f0f0f0;
+$sub-font: 'Rajdhani', sans-serif;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  color: #3d5572;
-  background-color: #f9f9f9;
+a {
+  text-decoration: none;
+
+  &:-webkit-any-link {
+    color: $main-color;
+  }
 }
 
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: $main-color;
+  background-color: $background;
+}
+
+//---ヘッダー・検索ボックス---
+
 header {
+  width: 100%;
   height: 38px;
 }
 
-.header {
+#header {
   display: flex;
   justify-content:space-between;
   align-items: center;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 200px;
   z-index: 500;
   top: 0;
   position: fixed;
@@ -47,10 +68,11 @@ header {
   box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
 }
 
-.logo {
-  color: #3d5572;
+#logo {
+  width: 150px;
+  color: $main-color;
   font-size: 30px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: $sub-font;
 }
 
 .sform {
@@ -62,7 +84,7 @@ header {
   height: 20px;
   margin-right: 20px;
   background: none;
-  color: #666;
+  color: $color-grey;
   border: none;
   border-bottom: solid 1px #ccc;
 }
@@ -71,80 +93,32 @@ header {
   height: 20px;
   padding: 0 200px 0 5px;
   background: none;
-  color: #666;
+  color: $color-grey;
   border: none;
   border-bottom: solid 1px #ccc;
 }
 
 .sbtn {
   background: none;
-  color: #666;
+  color: $color-grey;
   border: none;
+  cursor: pointer;
 }
 
-.container {
-  display: flex;
-  width: 1000px;
-  margin: 0 auto;
-  min-height: 100vh;
-}
+//-----サイドバー共通-----
 
-.sidebar {
+#sidebar {
   width: 160px;
   margin-right: 80px;
 }
 
-// ユーザー詳細画面で表示
-
-.user-profile {
-  padding-top: 20px;
-}
-
-.profile-header {
-  width: 100%;
-  margin: 30px auto;
-  border-bottom: solid 1px #3d5572;
-}
-
-.name {
-  text-align: center;
-  font-size: 18px;
-}
-
-.profiles {
-  text-align: center;
-}
-
-.profile {
-  font-size: 12px;
-}
-
-.follow-btn {
-  width: 140px;
-  display: block;
-  margin: 0 auto;
-}
-
-.btn {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.profile-list-count, .introduction {
-  //width: 70%;
-  margin: 0 auto;
-  padding-bottom: 20px;
-}
-
-// ここまで
-
-.main-nav {
+#nav-container {
   position: -webkit-sticky;
   position: sticky;
   top: 100px;
   width: 100%;
   margin: 0 auto;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: $sub-font;
 }
 
 .nav-contents {
@@ -152,27 +126,22 @@ header {
   list-style: none;
 }
 
-.nav {
+.menu {
+  margin-bottom: 20px;
+  border-bottom: solid 1px $main-color;
+}
+
+.nav-li {
   margin: 10px 0;
 }
 
-.menu {
-  margin-bottom: 20px;
-  border-bottom: solid 1px #3d5572;
-}
-
-.link-style {
-  text-decoration: none;
-  color: #3d5572;
+.link {
+  color: $main-color;
   transition: color 0.2s;
-}
 
-.link-style:hover{
-  color :#b0c4de;
-}
-
-.i, .fas {
-  font-size: 0.7em;
+  &:hover {
+    color: $hov-color;
+  }
 }
 
 .sns {
@@ -189,9 +158,61 @@ header {
   margin-bottom: 10px;
 }
 
-.main-content {
+//---サイドバー（ユーザー詳細画面）---
+
+.profile {
+  padding-top: 20px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content:space-between;
   width: 100%;
-  margin: 60px auto 40px;
+  margin: 30px auto;
+  border-bottom: solid 1px $main-color;
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 18px;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info-item {
+  font-size: 12px;
+}
+
+.follow-btn {
+  width: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.profile-list, .introduction {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+//-----メイン画面-----
+
+#container {
+  display: flex;
+  width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+#main-contents {
+  width: 100%;
+  margin: 80px auto 20px;
 }
 
 #skippr {
@@ -215,7 +236,7 @@ header {
   background-image: url(test5.jpg);
 }
 
-.headline {
+#headline {
   display: flex;
   justify-content: space-between;
   padding: 6px 6px;
@@ -223,25 +244,52 @@ header {
   box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
 }
 
-.content {
-  width: 100%;
-}
-
 .more {
   display: flex;
   justify-content: center;
+
+  .more-btn {
+    font-size: 15px;
+    font-weight: bold;
+    background: $background;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
-.more-btn {
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  background: #f9f9f9;
-  border: none;
-}
+//-----ソートボタン-----
 
-.more-btn:hover {
+select {
+  border: solid 1px #ccc;
   cursor: pointer;
+}
+
+.sort {
+  color: $color-grey;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sort-btn {
+  color: $color-grey;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $main-color;
+    border-bottom: solid 1px $main-color;
+  }
+}
+
+//-----写真一覧-----
+
+.content {
+  width: 100%;
 }
 
 //jscrollが生成するクラスにも指定
@@ -254,25 +302,46 @@ header {
   list-style: none;
 }
 
+//jscroll+kaminariのpagenationで生じるズレの修正
 .post {
+  margin-right: 42px;
+}
+
+.post-item {
+  width: 220px;
   margin-bottom: 25px;
+  border-radius: 3%;
+  border: solid 1px $background;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
 }
 
 .info {
-  text-align: right;
+  margin: 5px;
 }
 
-.info-counts {
-  padding-right: 60px;
+.info-user {
+  margin: 5px auto;
 }
 
 .info-font {
   font-size: 10px;
 }
 
-.info-name {
+.info-user-name {
   padding-left: 5px;
-  font-size: 13px;
+  font-size: 16px;
+}
+
+.info-tag {
+  margin-bottom: 5px;
+}
+
+.info-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  background-color: #f0f0f0;
 }
 
 .img {
@@ -288,18 +357,61 @@ header {
   border-radius: 5%;
 }
 
-.img-shadow {
-  box-shadow: 8px 8px 8px rgba(0,0,0,0.6);
+.hover-red:hover {
+  color: $color-red;
+}
+
+.i, .fas, .far, .count {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: $main-color;
+}
+
+.red {
+  color: $color-red;
 }
 
 nav.pagination {
-  display: none;
+ display: none;
+ width: 100%;
 }
 
-/*!
+//---写真詳細画面---
+
+.edit-btn {
+  font-weight: bold;
+
+  &:hover {
+    color: $hov-color;
+  }
+}
+
+.del-btn {
+  font-weight: bold;
+  margin-left: 20px;
+
+  &:hover {
+    color: $color-red;
+  }
+}
+
+.post-detail {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.img-detail {
+  display: block;
+  margin: 30px auto;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+}
+
+.likes {
+  margin-bottom: 20px;
+}
+
 .badge-group {
   margin: 20px;
-  width: 260px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -307,15 +419,66 @@ nav.pagination {
 }
 
 .badge {
-  margin-top: 10px;
-  margin-right: 8px;
-  border-radius: 4px;
-  background: #f4f4f4;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-  padding: 5px 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background: $cmt-background;
+  padding: 1px 5px;
   overflow: hidden;
-  color: #3d5572;
+  color: $main-color;
   font-size: 12px;
   font-weight: bold;
 }
-*/
+
+.text {
+  margin-bottom: 20px;
+  background: $cmt-background;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cbtn {
+  background: $cmt-background;
+  padding: 10px;
+  margin-top: 10px;
+  color: $color-grey;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background: $main-color;
+  }
+}
+
+.comment-user {
+  margin-right: 20px;
+}
+
+.comment-text {
+  padding: 10px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #f0f0f0;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.time {
+  float: right;
+  font-size: 12px;
+}
+
+.size {
+  font-size: 12px;
+}

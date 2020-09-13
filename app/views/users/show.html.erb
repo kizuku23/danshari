@@ -1,15 +1,13 @@
-<div class="container">
+<div id="container">
 
-<%= render 'users/sidebar', user: @user %>
+  <%= render 'users/sidebar', user: @user %>
 
-<div class="main-content">
+  <div id="main-contents">
+    <div id="headline">
+      <h3><%= @user.name %> さんの写真</h3>
+    </div>
 
-  <div class="headline">
-    <h3><%= @user.name %> さんの写真</h3>
+    <%= render 'posts/index', posts: @posts %>
+
   </div>
-
-  <%= render 'posts/index', posts: @posts %>
-
-</div>
-
 </div>

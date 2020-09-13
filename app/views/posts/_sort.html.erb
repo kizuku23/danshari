@@ -1,6 +1,6 @@
 <div class="sort">
   <%= form_with model: @post, url: sort_path, method: :get, local: true do |f| %>
     <%= f.select :keyword, [ ['新しい順', 'new'],['古い順', 'old'],['いいね順', 'likes']] %>
-    <%= f.submit %>
+    <%= f.submit 'PUSH', class: "sort-btn" %>
   <% end %>
 </div>

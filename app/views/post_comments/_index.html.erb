@@ -1,14 +1,18 @@
 <% post_comments.each do |post_comment| %>
-  <tr>
-    <td class="show-comment">
+  <div class="comment">
+    <div class="comment-user">
       <%= link_to user_path(post_comment.user), class: "user_#{post_comment.user.id}" do %>
-        <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no-image.jpg", size: "50x50" %><br>
-        <%= post_comment.user.name %>
+        <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no-image.jpg", size: "50x50", class: "img-circle" %>
       <% end %>
-    </td>
-    <td class="show-comment"><%= post_comment.comment %></td>
-    <% if current_user == post_comment.user %>
-      <td><%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete, remote: true %></td>
-    <% end %>
-  </tr>
+    </div>
+    <%= post_comment.user.name %>
+
+  </div>
+  <div class="comment-text"><%= post_comment.comment %></div>
+  <% if current_user == post_comment.user %>
+    <span class="right">
+      <span class="size"><%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+      <%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'}, remote: true, class: "del-btn" %>
+    </span>
+  <% end %>
 <% end %>

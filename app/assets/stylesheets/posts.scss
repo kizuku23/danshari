@@ -1,3 +1,37 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//---写真投稿・編集画面---
+
+.photo {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.fields, .pbtn {
+  width: 300px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+.pbtn {
+  cursor: pointer;
+  margin-left: 94px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.table3 {
+  th {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  td {
+    padding: 0 0 20px 30px;
+  }
+}

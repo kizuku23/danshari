@@ -1,32 +1,32 @@
-<div class="container">
+<div id="container">
 
-<%= render 'users/sidebar' %>
+  <%= render 'users/sidebar' %>
 
-<div class="main-content">
+  <div id="main-contents">
+    <% if @user_or_post == "1" %>
+      <div id="headline">
+        <h3>Posts</h3>
 
-<% if @user_or_post == "1" %>
-  <div class="headline">
-    <h3>Posts</h3>
-    <%= render 'posts/sort' %>
-  </div>
+        <%= render 'posts/sort' %>
 
-  <%= render 'posts/index', posts: @posts %>
+      </div>
 
-<% elsif @user_or_post == "2" %>
-  <h1>User</h1>
-    <table>
-        <% @users.each do |user| %>
-        <thead>
-            <tr>
-                <th></th>
-                <th><%= user.name %> </th>
-            </tr>
-        </thead>
-        <% end %>
-    </table>
-<% else %>
-<% end %>
+      <%= render 'posts/index', posts: @posts %>
 
+    <% elsif @user_or_post == "2" %>
+      <h1>User</h1>
+        <table>
+            <% @users.each do |user| %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><%= user.name %> </th>
+                </tr>
+            </thead>
+            <% end %>
+        </table>
+    <% else %>
+    <% end %>
 </div>
 
 </div>

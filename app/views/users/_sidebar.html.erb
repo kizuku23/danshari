@@ -1,33 +1,42 @@
-<div class="sidebar">
+<div id="sidebar">
 
-  <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
-    <div class="user-profile">
-      <div class="profile-header">PROFILE</div>
+  <!-- ユーザー、写真詳細画面の場合はサイドバーにプロフィールを表示 -->
+  <% if controller.action_name == 'show' %>
+    <div class="profile">
+      <div class="profile-header">
+        <!-- カレントユーザーの場合はプロフィール編集アイコンを表示 -->
+        <% if current_user == user %>
+          PROFILE
+          <%= link_to edit_user_path(current_user), class: "edit" do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+        <% else %>
+          PROFILE
+        <% end %>
+      </div>
       <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
       <br>
-      <div class="name"><%= user.name %></div>
-      <div class="profile-list">
-        <div class="profiles">
-          <span class="profile"><%= user.layout %></span>
-          <span class="profile"><%= user.area %></span>
-          <span class="profile"><%= user.status %></span>
+      <div class="profile-name"><%= user.name %></div>
+      <!-- <div class="profile-info"> -->
+        <div class="profile-info">
+          <span class="profile-info-item"><%= user.layout %></span>
+          <span class="profile-info-item"><%= user.area %></span>
+          <span class="profile-info-item"><%= user.status %></span>
         </div>
-      </div>
-      <div class="profile-list">
-        <div class="profiles">
-          <span class="profile"><%= user.age %></span>
-          <span class="profile"><%= user.gender %></span>
+      <!-- </div> -->
+     <!--  <div class="profile-info"> -->
+        <div class="profile-info">
+          <span class="profile-info-item"><%= user.age %></span>
+          <span class="profile-info-item"><%= user.gender %></span>
         </div>
-      </div>
-
+      <!-- </div> -->
+      <!-- カレントユーザーでない場合はフォローボタンを表示 -->
       <% if current_user != user %>
         <div class="follow-btn following_buttons_<%= user.id %>">
           <%= render 'relationships/relationship', user: @user %>
         </div>
       <% end %>
-
-
-      <table class="profile-list-count profile">
+      <table class="profile-list profile-info-item">
         <tbody>
           <tr>
             <td>すべての写真</td>
@@ -47,38 +56,35 @@
           </tr>
         </tbody>
       </table>
-
       <div class="introduction">
         <div class="profile-header"><h4>自己紹介</h4></div>
-        <div class="profile"><%= user.introduction %></div>
+        <div class="profile-info-item"><%= user.introduction %></div>
       </div>
     </div>
   <% end %>
 
-  <nav class="main-nav">
+  <!-- 共通サイドバー -->
+  <nav id="nav-container">
     <ul class="nav-contents">
       <li class="nav menu">MENU</li>
       <% if user_signed_in? %>
-        <li class="nav"><%= link_to 'HOME', root_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'PROFILE', user_path(current_user), class: 'link-style' %> <i class="fas fa-user-circle"></i></li>
-        <li class="nav"><%= link_to 'UPLOAD', new_post_path, class: 'link-style' %> <i class="fas fa-image"></i></li>
+        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'PROFILE', user_path(current_user), class: 'link' %> <i class="fas fa-user-circle"></i></li>
+        <li class="nav-li"><%= link_to 'UPLOAD', new_post_path, class: 'link' %> <i class="fas fa-image"></i></li>
         <br>
-        <li class="nav"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link-style' %></li>
-        <!-- <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li> -->
+        <li class="nav-li"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link' %></li>
       <% else %>
-        <li class="nav"><%= link_to 'HOME', root_path, class: 'link-style' %></li>
-        <li class="nav"><%= link_to 'ABOUT', about_path, class: 'link-style' %></li>
+        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'ABOUT', about_path, class: 'link' %></li>
         <br>
-        <li class="nav"><%= link_to 'Login', new_user_session_path, class: 'link-style' %> <i class="fas fa-sign-in-alt"></i></li>
-       <!--  <li class="nav"><%= link_to 'お問い合わせ', inquiry_path, class: 'link-style' %></li> -->
+        <li class="nav-li"><%= link_to 'Login', new_user_session_path, class: 'link' %> <i class="fas fa-sign-in-alt"></i></li>
       <% end %>
     </ul>
     <div class="sns">
       <p class="sns-header">SNS</p>
-      <i class="jquery3 fab fa-instagram fa-2x"></i><br>
-      <i class="jquery1 fab fa-twitter fa-2x"></i><br>
-      <i class="jquery2 fab fa-facebook fa-2x"></i>
+      <i class="fab fa-instagram fa-2x"></i><br>
+      <i class="fab fa-twitter fa-2x"></i><br>
+      <i class="fab fa-facebook fa-2x"></i>
     </div>
   </nav>
-
 </div>

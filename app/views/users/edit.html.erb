@@ -1,10 +1,11 @@
-<div class="container">
+<div id="container">
 
 <%= render 'users/sidebar', user: @user %>
 
-<div class="main-content">
-
-  <h1>Users#edit</h1>
+<div id="main-contents">
+  <div id="headline">
+    <h3>プロフィール編集</h3>
+  </div>
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -18,53 +19,48 @@
   <% end %>
 
   <%= form_for(@user) do |f| %>
-    <div>
-      <%= f.label 'プロフィール画像' %>
+    <div class="plf-img">
+      <%= f.label 'プロフィール画像' %><br>
       <%= f.attachment_field :profile_image %>
     </div>
 
-    <div>
-      <%= f.label 'お名前' %>
-      <%= f.text_field :name %>
-    </div>
+    <table class="table2">
+      <tr>
+        <th>お名前</th>
+        <td><%= f.text_field :name, class: "fields" %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= f.text_field :email, class: "fields" %></td>
+      </tr>
+      <tr>
+        <th>性別</th>
+        <td><%= f.select :gender, User.genders.keys.map { |k| [k, k]} %></td>
+      </tr>
+      <tr>
+        <th>年代</th>
+        <td><%= f.select :age, User.ages.keys.map { |k| [k, k]} %></td>
+      </tr>
+      <tr>
+        <th>居住形態</th>
+        <td><%= f.select :status, User.statuses.keys.map { |k| [k, k]} %></td>
+      </tr>
+      <tr>
+        <th>間取り</th>
+        <td><%= f.select :layout, User.layouts.keys.map { |k| [k, k]} %></td>
+      </tr>
+      <tr>
+        <th>広さ</th>
+        <td><%= f.select :area, User.areas.keys.map { |k| [k, k]} %></td>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <td><%= f.text_area :introduction, class: "fields" %></td>
+      </tr>
+    </table>
 
     <div>
-      <%= f.label 'メールアドレス' %>
-      <%= f.text_field :email %>
-    </div>
-
-    <div>
-      <%= f.label '性別' %>
-      <%= f.select :gender, User.genders.keys.map { |k| [k, k]} %>
-    </div>
-
-    <div>
-      <%= f.label '年代' %>
-      <%= f.select :age, User.ages.keys.map { |k| [k, k]} %>
-    </div>
-
-    <div>
-      <%= f.label '居住形態' %>
-      <%= f.select :status, User.statuses.keys.map { |k| [k, k]} %>
-    </div>
-
-    <div>
-      <%= f.label '間取り' %>
-      <%= f.select :layout, User.layouts.keys.map { |k| [k, k]} %>
-    </div>
-
-    <div>
-      <%= f.label '広さ' %>
-      <%= f.select :area, User.areas.keys.map { |k| [k, k]} %>
-    </div>
-
-    <div>
-      <%= f.label '自己紹介' %>
-      <%= f.text_area :introduction %>
-    </div>
-
-    <div>
-      <%= f.submit '変更を保存' %>
+      <%= f.submit '変更を保存', class: "ubtn pos" %>
     </div>
   <% end %>
 </div>

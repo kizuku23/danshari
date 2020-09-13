@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
@@ -48,10 +48,10 @@ $(document).ready(function () {
 // jscroll, kaminariでスクロール
 //$(document).on('turbolinks:load', function() {
   $(function() {
-    $('.post-grid').jscroll({
-      contentSelector: '.post-grid',
+    $('.grid').jscroll({
+      contentSelector: '.grid',
       nextSelector: 'span.next a',
-      loadingHtml: 'Now Loading'
+      loadingHtml: 'now loading'
     });
   });
 //});

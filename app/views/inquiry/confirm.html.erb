@@ -1,30 +1,39 @@
-<div class="page-header">
-  <h1>お問い合わせ</h1>
-</div>
+<div id="container">
 
-<%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
-  <table class="table">
-    <tr>
-      <th>名前</th>
-      <td>
-        <%= f.hidden_field :name %>
-        <%= @inquiry.name %>
-      </td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td>
-        <%= f.hidden_field :email %>
-        <%= @inquiry.email %>
-      </td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
-      <td>
-        <%= f.hidden_field :message %>
-        <%= simple_format(@inquiry.message) %>
-      </td>
-    </tr>
-  </table>
-  <%= f.submit '送信', :class => 'btn btn-primary' %>
-<% end %>
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3>お問い合わせ</h3>
+    </div>
+
+    <%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
+      <table class="table">
+        <tr>
+          <th>お名前</th>
+          <td>
+            <!-- hidden_field: 入力させずにデータを渡す -->
+            <%= f.hidden_field :name %>
+            <%= @inquiry.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td>
+            <%= f.hidden_field :email %>
+            <%= @inquiry.email %>
+          </td>
+        </tr>
+        <tr>
+          <th>お問い合わせ内容</th>
+          <td>
+            <%= f.hidden_field :message %>
+            <%= simple_format(@inquiry.message) %>
+          </td>
+        </tr>
+      </table><br>
+      <%= f.submit '送信', class: "ubtn" %>
+    <% end %>
+
+  </div>
+</div>
