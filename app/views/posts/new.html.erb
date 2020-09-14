@@ -7,16 +7,7 @@
       <h3>新規投稿</h3>
     </div>
 
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
-        <ul>
-          <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render 'layouts/error_messages', post: @post %>
 
     <%= form_for(@post) do |f| %>
       <div class="photo">

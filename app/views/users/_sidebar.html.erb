@@ -1,13 +1,13 @@
 <div id="sidebar">
 
-  <!-- ユーザー、写真詳細画面の場合はサイドバーにプロフィールを表示 -->
+  <!-- プロフィールを表示 -->
   <% if controller.action_name == 'show' %>
     <div class="profile">
       <div class="profile-header">
-        <!-- カレントユーザーの場合はプロフィール編集アイコンを表示 -->
+        <!-- プロフィール編集アイコンを表示 -->
         <% if current_user == user %>
           PROFILE
-          <%= link_to edit_user_path(current_user), class: "edit" do %>
+          <%= link_to edit_user_registration_path(current_user), class: "edit" do %>
             <i class="fas fa-cog"></i>
           <% end %>
         <% else %>
@@ -17,20 +17,16 @@
       <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
       <br>
       <div class="profile-name"><%= user.name %></div>
-      <!-- <div class="profile-info"> -->
         <div class="profile-info">
           <span class="profile-info-item"><%= user.layout %></span>
           <span class="profile-info-item"><%= user.area %></span>
           <span class="profile-info-item"><%= user.status %></span>
         </div>
-      <!-- </div> -->
-     <!--  <div class="profile-info"> -->
         <div class="profile-info">
           <span class="profile-info-item"><%= user.age %></span>
           <span class="profile-info-item"><%= user.gender %></span>
         </div>
-      <!-- </div> -->
-      <!-- カレントユーザーでない場合はフォローボタンを表示 -->
+      <!-- フォローボタンを表示 -->
       <% if current_user != user %>
         <div class="follow-btn following_buttons_<%= user.id %>">
           <%= render 'relationships/relationship', user: @user %>
@@ -63,7 +59,7 @@
     </div>
   <% end %>
 
-  <!-- 共通サイドバー -->
+  <!-- サイドバー -->
   <nav id="nav-container">
     <ul class="nav-contents">
       <li class="nav menu">MENU</li>

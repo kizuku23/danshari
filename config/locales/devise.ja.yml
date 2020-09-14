@@ -7,6 +7,19 @@ ja:
 #      already_confirmed: "was already confirmed"
       not_locked: "は凍結されていません"
 #      not_locked: "was not locked"
+      not_saved:
+        one: "1個のエラーがあるため、保存出来ません。"
+        other: "%{count}個のエラーがあるため、保存出来ません。"
+
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        password_confirmation: 確認用パスワード
+      post:
+        image: 画像
 
   devise:
     failure:

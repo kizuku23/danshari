@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+  controllers: { registrations: 'users/registrations' },
+  path_names: {edit: ':id/edit'}
+
   root 'posts#top'
   get 'about' => 'posts#about'
   get 'tags/:tag', to: 'posts#index', as: :tag
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
-  resources :users, except: [:new, :create, :destroy] do
+  resources :users, except: [:new, :create, :edit, :destroy] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
