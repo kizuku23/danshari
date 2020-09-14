@@ -55,3 +55,8 @@ $(document).ready(function () {
     });
   });
 //});
+
+//フラッシュメッセージのフェードアウト
+  $(function(){
+    $("#flash").fadeOut(5000);
+  });

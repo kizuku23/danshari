@@ -105,6 +105,20 @@ header {
   cursor: pointer;
 }
 
+//---フラッシュメッセージ---
+
+.notice {
+  text-align: center;
+  color: white;
+  background-color: #66cdaa;
+}
+
+.alert {
+  text-align: center;
+  color: white;
+  background-color: $color-red;
+}
+
 //-----サイドバー共通-----
 
 #sidebar {
