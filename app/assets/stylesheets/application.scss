@@ -220,34 +220,33 @@ header {
 #container {
   display: flex;
   width: 1000px;
-  min-height: 100vh;
   margin: 0 auto;
 }
 
 #main-contents {
   width: 100%;
-  margin: 80px auto 20px;
+  margin: 60px auto 20px;
 }
 
 #skippr {
   height: 400px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
 }
 
 .image1 {
-  background-image: url(test1.jpg);
+  background-image: url(photo1.jpg);
 }
 .image2 {
-  background-image: url(test2.jpg);
+  background-image: url(photo2.jpg);
 }
 .image3 {
-  background-image: url(test3.jpg);
+  background-image: url(photo3.jpg);
 }
 .image4 {
-  background-image: url(test4.jpg);
+  background-image: url(photo4.jpg);
 }
 .image5 {
-  background-image: url(test5.jpg);
+  background-image: url(photo5.jpg);
 }
 
 #headline {
@@ -495,4 +494,44 @@ nav.pagination {
 
 .size {
   font-size: 12px;
+}
+
+//-----aboutページ-----
+
+.about {
+  display: flex;
+}
+
+.about-background {
+  width: 450px;
+  height: 400px;
+  margin-top: 80px;
+  background-image: url(photo-about.jpeg);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+.about-headline {
+  font-family: $sub-font;
+  border-bottom: solid 1px $main-color;
+}
+
+.about-headline-sub {
+  padding-top: 5px;
+  float: right;
+}
+
+.about-wrap {
+  width: 65%;
+  padding: 120px 80px ;
+}
+
+.about-textbox {
+  margin-top: 60px;
+}
+
+.about-text {
+  line-height: 30px;
 }
