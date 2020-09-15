@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
-
   def edit
     @user = User.find(params[:id])
   end
@@ -23,9 +20,11 @@ class UsersController < ApplicationController
   end
 
   def follows
+    @users = User.find(params[:id])
   end
 
   def followers
+    @users = User.find(params[:id])
   end
 
   def search

@@ -39,11 +39,11 @@
             <td><%= user.posts.count %></td>
           </tr>
           <tr>
-            <td>フォロー</td>
+            <td><%= link_to 'フォロー', user_follows_path(user), class: "link" %></td>
             <td><%= user.follower.count %></td>
           </tr>
           <tr>
-            <td>フォロワー</td>
+            <td><%= link_to 'フォロワー', user_followers_path(user), class: "link" %></td>
             <td><%= user.followed.count %></td>
           </tr>
           <tr>

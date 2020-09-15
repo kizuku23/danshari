@@ -3,9 +3,10 @@
   <%= render 'users/sidebar' %>
 
   <div id="main-contents">
+    <!-- 投稿検索 -->
     <% if @user_or_post == "1" %>
       <div id="headline">
-        <h3>Posts</h3>
+        <h3>写真一覧</h3>
 
         <%= render 'posts/sort' %>
 
@@ -13,20 +14,14 @@
 
       <%= render 'posts/index', posts: @posts %>
 
+    <!-- ユーザー検索 -->
     <% elsif @user_or_post == "2" %>
-      <h1>User</h1>
-        <table>
-            <% @users.each do |user| %>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th><%= user.name %> </th>
-                </tr>
-            </thead>
-            <% end %>
-        </table>
-    <% else %>
-    <% end %>
-</div>
+      <div id="headline">
+        <h3>ユーザーリスト</h3>
+      </div>
 
+      <%= render 'users/list', users: @users %>
+
+    <% end %>
+  </div>
 </div>

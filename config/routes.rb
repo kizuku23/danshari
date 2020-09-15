@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
-  resources :users, except: [:new, :create, :edit, :destroy] do
+  resources :users, except: [:new, :index, :create, :edit, :destroy] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
