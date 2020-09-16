@@ -74,3 +74,7 @@ gem 'dotenv-rails'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails-i18n', '~> 5.1'
+
+group :production do
+  gem 'mysql2'
+end

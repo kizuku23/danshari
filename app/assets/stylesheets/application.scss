@@ -234,19 +234,19 @@ header {
 }
 
 .image1 {
-  background-image: url(photo1.jpg);
+  background-image: image-url(photo1.jpg);
 }
 .image2 {
-  background-image: url(photo2.jpg);
+  background-image: image-url(photo2.jpg);
 }
 .image3 {
-  background-image: url(photo3.jpg);
+  background-image: image-url(photo3.jpg);
 }
 .image4 {
-  background-image: url(photo4.jpg);
+  background-image: image-url(photo4.jpg);
 }
 .image5 {
-  background-image: url(photo5.jpg);
+  background-image: image-url(photo5.jpg);
 }
 
 #headline {
@@ -506,7 +506,7 @@ nav.pagination {
   width: 450px;
   height: 400px;
   margin-top: 80px;
-  background-image: url(photo-about.jpeg);
+  background-image: image-url(photo-about.jpeg);
   background-position: center;
   background-size: cover;
   box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
