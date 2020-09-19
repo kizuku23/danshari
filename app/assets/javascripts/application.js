@@ -10,17 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
 //= require_tree .
-//= require jquery.jscroll.min.js
 
 // オプションを指定してSkipprの実行
-//$(document).on('turbolinks:load', function() {
-$(document).ready(function () {
+$(document).on('turbolinks:load', function() {
+//$(document).ready(function () {
   $("#theTarget").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
@@ -43,20 +41,22 @@ $(document).ready(function () {
     // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
     hidePrevious : true
   });
+  var dispNone = "display: none;";
+  $(".skippr-nav-container").each(function(index,element){
+    var el = $(element);
+    if((index === 0) && (el.attr("style") == dispNone) ){
+      el.removeAttr("style");
+    }else if((index > 0)  && (el.attr("style") != dispNone)){
+      el.attr("style",dispNone);
+    }
+  });
+  // jscroll, kaminariでスクロール
+  $('.grid').jscroll({
+    contentSelector: '.grid',
+    nextSelector: 'span.next a',
+    loadingHtml: 'now loading'
+  });
+  // フラッシュメッセージのフェードアウト
+  $("#flash").fadeOut(5000);
 });
 
-// jscroll, kaminariでスクロール
-$(document).on('turbolinks:load', function() {
-  $(function() {
-    $('.grid').jscroll({
-      contentSelector: '.grid',
-      nextSelector: 'span.next a',
-      loadingHtml: 'now loading'
-    });
-  });
-});
-
-//フラッシュメッセージのフェードアウト
-  $(function(){
-    $("#flash").fadeOut(5000);
-  });
