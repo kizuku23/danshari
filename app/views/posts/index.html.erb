@@ -1,0 +1,16 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3>すべての写真</h3>
+
+      <%= render 'posts/sort' %>
+
+    </div>
+
+    <%= render 'posts/index', posts: @posts %>
+
+  </div>
+</div>

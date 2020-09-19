@@ -1,0 +1,42 @@
+<div class="content">
+  <ul class="grid">
+    <% posts.each do |post| %>
+    <li class="post">
+      <div class="post-item">
+        <div>
+          <%= link_to(post) do %>
+            <%= attachment_image_tag post, :image, :fill, 220, 220, class: "img-round" %>
+          <% end %>
+        </div>
+        <div class="info">
+          <div class="info-user">
+            <div>
+              <%= link_to(post.user) do %>
+                <%= attachment_image_tag(post.user, :profile_image, fallback: 'no-image.jpg', size: '35x35', class: "img-circle") %>
+              <% end %>
+              <span class="info-user-name"><%= post.user.name %></span>
+            </div>
+            <div>
+              <!-- いいね機能 -->
+              <span class="like likes_buttons_<%= post.id %>">
+                <%= render 'likes/like', post: post %>
+              </span>
+              <!-- いいね機能 -->
+              <i class="far fa-comment"><span class="count"><%= post.post_comments.count %></span></i>
+            </div>
+          </div>
+          <!-- タグ -->
+          <div class="info-tag">
+            <%= render 'posts/tag_list', tag_list: post.tag_list %>
+          </div>
+          <!-- タグ -->
+          <p class="info-description">
+            <%= post.description %>
+          </p>
+        </div>
+      </div>
+    </li>
+    <% end %>
+    <%= paginate posts %>
+  </ul>
+</div>

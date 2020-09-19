@@ -1,0 +1,39 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3>お問い合わせ</h3>
+    </div>
+
+    <%= form_for @inquiry, url: inquiry_confirm_path do |f| %>
+      <% if @inquiry.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <% @inquiry.errors.each do |attr, msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div><br />
+        <%= f.text_field :name, autofocus: true, placeholder: "名前を入力", class: "fields" %>
+      </div>
+
+      <div><br />
+        <%= f.email_field :email, autofocus: true, placeholder: "メールアドレスを入力", class: "fields" %>
+      </div>
+
+      <div><br />
+        <%= f.text_field :message, autofocus: true, placeholder: "お問い合わせ内容を入力", class: "fields" %>
+      </div>
+
+      <div><br />
+        <%= f.submit '確認', class: "ubtn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3>フォロワーリスト</h3>
+    </div>
+
+    <%= render 'users/list', users: @users %>
+
+  </div>
+</div>

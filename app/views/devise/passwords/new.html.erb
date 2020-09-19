@@ -1,0 +1,27 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h2>パスワードの再設定</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%#= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力", class: "fields" %>
+      </div>
+
+      <div class="actions"><br />
+        <%= f.submit 'メールを送信', class: "ubtn" %>
+      </div>
+    <% end %>
+
+    <br /><%= render "devise/shared/links" %>
+
+  </div>
+
+</div>

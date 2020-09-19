@@ -1,0 +1,44 @@
+<div id="container">
+
+  <%= render 'users/sidebar', user: @post.user %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3><%= @post.user.name %> さんの写真</h3>
+      <div>
+        <% if @post.user == current_user %>
+          <%= link_to '編集', edit_post_path(@post), class: "edit-btn" %>
+          <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'}, class: "del-btn" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="post-detail">
+      <%= attachment_image_tag @post, :image, :fill, 500, 500, class: "img-detail" %>
+
+      <div class="likes">
+        <span class="like likes_buttons_<%= @post.id %>">
+          <%= render 'likes/like', post: @post %>
+        </span>
+        <i class="far fa-comment"><span class="count"><%= @post.post_comments.count %></span></i>
+        <span class="time"><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+      </div>
+
+      <div class="badge-group">
+        <%= render 'posts/tag_list', tag_list: @post.tag_list %>
+      </div>
+
+      <div class="text">
+        <%= @post.description %>
+      </div>
+
+      <div id="comments_area">
+        <%= render 'post_comments/index', post_comments: @post_comments %>
+      </div>
+
+      <div class="comment-form">
+        <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+      </div>
+
+    </div>
+
+</div>

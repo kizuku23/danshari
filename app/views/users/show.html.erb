@@ -1,0 +1,13 @@
+<div id="container">
+
+  <%= render 'users/sidebar', user: @user %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3><%= @user.name %> さんの写真</h3>
+    </div>
+
+    <%= render 'posts/index', posts: @posts %>
+
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DanshariApp</title>
+    <title>danshari</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header>
+      <div id="header">
+        <div id="logo">dan sha ri</div>
+
+        <%= render 'users/search' %>
+
+      </div>
+    </header>
+    <div id="flash">
+      <%= render 'layouts/notifications' %>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>

@@ -1,0 +1,96 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//-----共通設定-----
+
+.fields, .ubtn {
+  width: 300px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+.ubtn {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+//---ログイン・新規登録画面---
+
+.trans {
+  transition: color 0.2s;
+
+  &:hover {
+    color :#b0c4de;
+  }
+}
+
+//-----お問い合わせ画面-----
+
+.table {
+  th {
+    text-align: left;
+  }
+
+  td {
+    padding-left: 30px;
+  }
+}
+
+//-----プロフィール編集-----
+
+.plf-img {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.table2 {
+  th {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  td {
+    padding: 0 0 20px 30px;
+  }
+}
+
+.pos {
+  margin-left: 142px;
+}
+
+//-----ユーザーリスト-----
+
+
+.table4 {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px 10px 0 0;
+  border-spacing: 0;
+  font-size: 15px;
+
+  th {
+    border-bottom: solid 2px #ddd;
+    padding: 10px;
+    width: 80px;
+  }
+
+  .int {
+    width: 60%;
+  }
+
+  td {
+    border-bottom: solid 2px #ddd;
+    padding: 10px 0;
+  }
+
+  .follow {
+    width: 20%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,10 @@
+<% if post.errors.any? %>
+  <div class="alert">
+    <h3><%= post.errors.count %> 個のエラーがあるため、データを保存できません。</h3>
+    <ul>
+      <% post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

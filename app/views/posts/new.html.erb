@@ -1,0 +1,37 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+    <div id="headline">
+      <h3>新規投稿</h3>
+    </div>
+
+    <%= render 'layouts/error_messages', post: @post %>
+
+    <%= form_for(@post) do |f| %>
+      <div class="photo">
+        <%= f.label :写真をアップロードする %>
+        <%= f.attachment_field :image %>
+      </div>
+
+      <table class="table3">
+        <tr>
+          <th>タグ名</th>
+          <td>
+            <p> カンマ区切り( , )で複数登録できます</p>
+            <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "fields" %>
+          </td>
+        </tr>
+        <tr>
+          <th>コメント</th>
+          <td><%= f.text_area :description, class: "fields" %></td>
+        </tr>
+      </table>
+
+      <div>
+        <%= f.submit '新規登録', class: "pbtn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

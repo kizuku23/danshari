@@ -1,0 +1,537 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Rajdhani:wght@300;400&display=swap');
+
+//---変数設定---
+
+$main-color: #3d5572;
+$hov-color: #b0c4de;
+$color-grey: #666;
+$color-red: #dc3c36;
+$background: #f9f9f9;
+$cmt-background: #f0f0f0;
+$sub-font: 'Rajdhani', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+
+  &:-webkit-any-link {
+    color: $main-color;
+  }
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: $main-color;
+  background-color: $background;
+}
+
+//---ヘッダー・検索ボックス---
+
+header {
+  width: 100%;
+  height: 38px;
+}
+
+#header {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 200px;
+  z-index: 500;
+  top: 0;
+  position: fixed;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
+}
+
+#logo {
+  width: 150px;
+  color: $main-color;
+  font-size: 30px;
+  font-family: $sub-font;
+}
+
+.sform {
+  width: 500px;
+}
+
+.tbox {
+  width: 100px;
+  height: 20px;
+  margin-right: 20px;
+  background: none;
+  color: $color-grey;
+  border: none;
+  border-bottom: solid 1px #ccc;
+}
+
+.sbox {
+  height: 20px;
+  padding: 0 200px 0 5px;
+  background: none;
+  color: $color-grey;
+  border: none;
+  border-bottom: solid 1px #ccc;
+}
+
+.sbtn {
+  background: none;
+  color: $color-grey;
+  border: none;
+  cursor: pointer;
+}
+
+//---フラッシュメッセージ---
+
+.notice {
+  text-align: center;
+  color: white;
+  background-color: #66cdaa;
+}
+
+.alert {
+  text-align: center;
+  color: white;
+  background-color: $color-red;
+}
+
+//-----サイドバー共通-----
+
+#sidebar {
+  width: 160px;
+  margin-right: 80px;
+}
+
+#nav-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: $sub-font;
+}
+
+.nav-contents {
+  font-size: 20px;
+  list-style: none;
+}
+
+.menu {
+  margin-bottom: 20px;
+  border-bottom: solid 1px $main-color;
+}
+
+.nav-li {
+  margin: 10px 0;
+}
+
+.link {
+  color: $main-color;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $hov-color;
+  }
+}
+
+.sns {
+  position: relative;
+  top: 320px;
+  font-size: 12px;
+}
+
+.sns-header {
+  margin-bottom: 15px;
+}
+
+.fab {
+  margin-bottom: 10px;
+}
+
+//---サイドバー（ユーザー詳細画面）---
+
+.profile {
+  padding-top: 20px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+  margin: 30px auto;
+  border-bottom: solid 1px $main-color;
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 18px;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info-item {
+  font-size: 12px;
+}
+
+.follow-btn {
+  width: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.profile-list, .introduction {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+//-----メイン画面-----
+
+#container {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#main-contents {
+  width: 100%;
+  margin: 60px auto 20px;
+}
+
+#skippr {
+  height: 400px;
+  margin: 0 auto 30px;
+}
+
+.image1 {
+  background-image: image-url("photo1.jpg");
+}
+.image2 {
+  background-image: image-url("photo2.jpg");
+}
+.image3 {
+  background-image: image-url("photo3.jpg");
+}
+.image4 {
+  background-image: image-url("photo4.jpg");
+}
+.image5 {
+  background-image: image-url("photo5.jpg");
+}
+
+#headline {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 6px;
+  margin-bottom: 30px;
+  box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+
+  .more-btn {
+    font-size: 15px;
+    font-weight: bold;
+    background: $background;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+//-----ソートボタン-----
+
+select {
+  border: solid 1px #ccc;
+  cursor: pointer;
+}
+
+.sort {
+  color: $color-grey;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sort-btn {
+  color: $color-grey;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $main-color;
+    border-bottom: solid 1px $main-color;
+  }
+}
+
+//-----写真一覧-----
+
+.content {
+  width: 100%;
+}
+
+//jscrollが生成するクラスにも指定
+.grid, .jscroll-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 15px;
+  list-style: none;
+}
+
+//jscroll+kaminariのpagenationで生じるズレの修正
+.post {
+  margin-right: 42px;
+}
+
+.post-item {
+  width: 220px;
+  margin-bottom: 25px;
+  border-radius: 3%;
+  border: solid 1px $background;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+}
+
+.info {
+  margin: 5px;
+}
+
+.info-user {
+  margin: 5px auto;
+}
+
+.info-font {
+  font-size: 10px;
+}
+
+.info-user-name {
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.info-tag {
+  margin-bottom: 5px;
+}
+
+.info-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.img {
+  display: block;
+  margin: 0 auto;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.img-round {
+  border-radius: 5%;
+}
+
+.hover-red:hover {
+  color: $color-red;
+}
+
+.i, .fas, .far, .count {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: $main-color;
+}
+
+.red {
+  color: $color-red;
+}
+
+nav.pagination {
+ display: none;
+ width: 100%;
+}
+
+//---写真詳細画面---
+
+.edit-btn {
+  font-weight: bold;
+
+  &:hover {
+    color: $hov-color;
+  }
+}
+
+.del-btn {
+  font-weight: bold;
+  margin-left: 20px;
+
+  &:hover {
+    color: $color-red;
+  }
+}
+
+.post-detail {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.img-detail {
+  display: block;
+  margin: 30px auto;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+}
+
+.likes {
+  margin-bottom: 20px;
+}
+
+.badge-group {
+  margin: 20px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.badge {
+  margin-top: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background: $cmt-background;
+  padding: 1px 5px;
+  overflow: hidden;
+  color: $main-color;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.text {
+  margin-bottom: 20px;
+  background: $cmt-background;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cbtn {
+  background: $cmt-background;
+  padding: 10px;
+  margin-top: 10px;
+  color: $color-grey;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background: $main-color;
+  }
+}
+
+.comment-user {
+  margin-right: 20px;
+}
+
+.comment-text {
+  padding: 10px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #f0f0f0;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.time {
+  float: right;
+  font-size: 12px;
+}
+
+.size {
+  font-size: 12px;
+}
+
+//-----aboutページ-----
+
+.about {
+  display: flex;
+}
+
+.about-background {
+  width: 450px;
+  height: 400px;
+  margin-top: 80px;
+  background-image: image-url("photo-about.jpeg");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+.about-headline {
+  font-family: $sub-font;
+  border-bottom: solid 1px $main-color;
+}
+
+.about-headline-sub {
+  padding-top: 5px;
+  float: right;
+}
+
+.about-wrap {
+  width: 65%;
+  padding: 120px 80px ;
+}
+
+.about-textbox {
+  margin-top: 60px;
+}
+
+.about-text {
+  line-height: 30px;
+}

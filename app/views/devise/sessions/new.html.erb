@@ -1,0 +1,40 @@
+<div id="container">
+
+  <%= render 'users/sidebar' %>
+
+  <div id="main-contents">
+
+    <div id="headline">
+      <h2>ログイン</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%#= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力", class: "fields" %>
+      </div>
+
+      <div class="field">
+        <%#= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力", class: "fields" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :次回から入力を省略 %>
+        </div>
+      <% end %>
+
+      <div class="actions"><br />
+        <%= f.submit 'ログイン', class: "ubtn" %>
+      </div>
+    <% end %>
+
+    <br /><%= render "devise/shared/links" %>
+
+    <%= link_to 'サポートに問い合わせる', inquiry_path, class: "trans" %>
+
+  </div>
+
+</div>

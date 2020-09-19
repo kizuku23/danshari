@@ -1,0 +1,86 @@
+<div id="sidebar">
+
+  <!-- プロフィールを表示 -->
+  <% if controller.action_name == 'show' %>
+    <div class="profile">
+      <div class="profile-header">
+        <!-- プロフィール編集アイコンを表示 -->
+        <% if current_user == user %>
+          PROFILE
+          <%= link_to edit_user_registration_path(current_user), class: "edit" do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+        <% else %>
+          PROFILE
+        <% end %>
+      </div>
+      <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
+      <br>
+      <div class="profile-name"><%= user.name %></div>
+        <div class="profile-info">
+          <span class="profile-info-item"><%= user.layout %></span>
+          <span class="profile-info-item"><%= user.area %></span>
+          <span class="profile-info-item"><%= user.status %></span>
+        </div>
+        <div class="profile-info">
+          <span class="profile-info-item"><%= user.age %></span>
+          <span class="profile-info-item"><%= user.gender %></span>
+        </div>
+      <!-- フォローボタンを表示 -->
+      <% if current_user != user %>
+        <div class="follow-btn following_buttons_<%= user.id %>">
+          <%= render 'relationships/relationship', user: @user %>
+        </div>
+      <% end %>
+      <table class="profile-list profile-info-item">
+        <tbody>
+          <tr>
+            <td>すべての写真</td>
+            <td><%= user.posts.count %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'フォロー', user_follows_path(user), class: "link" %></td>
+            <td><%= user.follower.count %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'フォロワー', user_followers_path(user), class: "link" %></td>
+            <td><%= user.followed.count %></td>
+          </tr>
+          <tr>
+            <td>いいねした写真</td>
+            <td><%= user.likes.count %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="introduction">
+        <div class="profile-header"><h4>自己紹介</h4></div>
+        <div class="profile-info-item"><%= user.introduction %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- サイドバー -->
+  <nav id="nav-container">
+    <ul class="nav-contents">
+      <li class="nav menu">MENU</li>
+      <% if user_signed_in? %>
+        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'PROFILE', user_path(current_user), class: 'link' %> <i class="fas fa-user-circle"></i></li>
+        <li class="nav-li"><%= link_to 'UPLOAD', new_post_path, class: 'link' %> <i class="fas fa-image"></i></li>
+        <br>
+        <li class="nav-li"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link' %></li>
+      <% else %>
+        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'ABOUT', about_path, class: 'link' %></li>
+        <br>
+        <li class="nav-li"><%= link_to 'Login', new_user_session_path, class: 'link' %> <i class="fas fa-sign-in-alt"></i></li>
+      <% end %>
+    </ul>
+    <div class="sns">
+      <p class="sns-header">SNS</p>
+      <i class="fab fa-instagram fa-2x"></i><br>
+      <i class="fab fa-twitter fa-2x"></i><br>
+      <i class="fab fa-facebook fa-2x"></i>
+    </div>
+  </nav>
+</div>
