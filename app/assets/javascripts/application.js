@@ -41,6 +41,7 @@ $(document).on('turbolinks:load', function() {
     // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
     hidePrevious : true
   });
+  // skipprを再度指定するとhtmlが追加されてしまい、初回の動作している側のskipprのhtmlが隠れてしまうため、初回以降のhtmlを非表示にするロジック。
   var dispNone = "display: none;";
   $(".skippr-nav-container").each(function(index,element){
     var el = $(element);
