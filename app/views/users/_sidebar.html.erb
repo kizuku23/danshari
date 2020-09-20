@@ -63,18 +63,18 @@
   <nav id="nav-container">
     <ul class="nav-contents">
       <li class="nav menu">MENU</li>
+      <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
       <% if user_signed_in? %>
-        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
         <li class="nav-li"><%= link_to 'PROFILE', user_path(current_user), class: 'link' %> <i class="fas fa-user-circle"></i></li>
         <li class="nav-li"><%= link_to 'UPLOAD', new_post_path, class: 'link' %> <i class="fas fa-image"></i></li>
-        <br>
-        <li class="nav-li"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'link' %></li>
       <% else %>
-        <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
         <li class="nav-li"><%= link_to 'ABOUT', about_path, class: 'link' %></li>
-        <br>
-        <li class="nav-li"><%= link_to 'Login', new_user_session_path, class: 'link' %> <i class="fas fa-sign-in-alt"></i></li>
+        <li class="nav-li"><%= link_to 'LOG IN', new_user_session_path, class: 'link' %> <i class="fas fa-sign-in-alt"></i></li>
       <% end %>
+      <li class="nav menu category-list">CATEGORY</li>
+      <li class="nav-li"><%= link_to 'PHOTOS', category_posts_path(1), method: :get, class: "link" %></li>
+      <li class="nav-li"><%= link_to 'IDEAS', category_posts_path(2), method: :get, class: "link" %></li>
     </ul>
     <div class="sns">
       <p class="sns-header">SNS</p>

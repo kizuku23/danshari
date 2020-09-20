@@ -20,6 +20,7 @@ ja:
         password_confirmation: 確認用パスワード
       post:
         image: 画像
+        category: カテゴリー
 
   devise:
     failure:
