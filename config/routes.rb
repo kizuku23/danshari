@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post  'inquiry/thanks' => 'inquiry#thanks'
 
   resources :posts do
+    get 'category/:id' => 'posts#category', as: 'category', on: :collection
     resources :post_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end

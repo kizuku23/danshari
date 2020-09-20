@@ -4,10 +4,14 @@
 
   <div id="main-contents">
     <div id="headline">
-      <h3>すべての写真</h3>
+      <% if controller.action_name == "category" %>
+        <h3>カテゴリー : <%= @category.name %></h3>
+      <% else %>
+        <h3>すべての写真</h3>
 
-      <%= render 'posts/sort' %>
+        <%= render 'posts/sort' %>
 
+      <% end %>
     </div>
 
     <%= render 'posts/index', posts: @posts %>

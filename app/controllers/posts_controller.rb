@@ -58,14 +58,20 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: '投稿を削除しました。'
   end
 
- def sort
+  def sort
     selection = params[:keyword]
     @posts = Post.sort(selection).page(params[:page]).per(9)
- end
+  end
+
+  def category
+    @posts = Post.where(category_id: params[:id]).page(params[:page]).per(9)
+    @category = Category.find(params[:id])
+    render :index
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:image, :description, :tag_list)
+    params.require(:post).permit(:image, :description, :tag_list, :category_id)
   end
 end
