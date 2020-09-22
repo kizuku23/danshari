@@ -13,8 +13,9 @@
 
     <%= form_for(@post) do |f| %>
       <div class="photo">
-        <%= f.label :写真イメージ %>
-        <%= f.attachment_field :image %>
+        <%= f.label :写真イメージ %><br>
+        <%= attachment_image_tag @post, :image, :fill, 300, 300, fallback: "no-image.png", size: "300x300", class: "prev" %><br>
+        <%= f.attachment_field :image, class: "image-prev" %>
       </div>
 
       <table class="table3">

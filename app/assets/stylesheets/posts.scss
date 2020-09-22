@@ -9,6 +9,10 @@
   margin-bottom: 20px;
 }
 
+.prev {
+  margin: 30px 0 30px 50px;
+}
+
 .fields, .pbtn {
   width: 300px;
   padding: 10px;
@@ -18,7 +22,7 @@
 
 .pbtn {
   cursor: pointer;
-  margin-left: 94px;
+  margin-left: 114px;
 
   &:hover {
     opacity: 0.6;

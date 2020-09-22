@@ -317,7 +317,7 @@ select {
 .grid, .jscroll-inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   width: 100%;
   font-size: 15px;
   list-style: none;
