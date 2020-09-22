@@ -11,7 +11,8 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="plf-img">
         <%= f.label 'プロフィール画像' %><br>
-        <%= f.attachment_field :profile_image %>
+        <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", size: "100x100", class: "prev" %><br>
+        <%= f.attachment_field :profile_image, class: "image-prev" %>
       </div>
 
       <table class="table2">
