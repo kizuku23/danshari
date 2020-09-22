@@ -12,12 +12,11 @@
   <body>
     <header>
       <div id="header">
-        <div id="logo">dan sha ri</div>
-
+        <div id="logo"><%= link_to 'dan sha ri', root_path %></div>
         <%= render 'users/search' %>
-
       </div>
     </header>
+
     <div id="flash">
       <%= render 'layouts/notifications' %>
     </div>

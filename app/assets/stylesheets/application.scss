@@ -36,9 +36,11 @@ $sub-font: 'Rajdhani', sans-serif;
 
 a {
   text-decoration: none;
+  color: $main-color;
+  transition: color 0.2s;
 
-  &:-webkit-any-link {
-    color: $main-color;
+  &:hover {
+    color: $hov-color;
   }
 }
 
@@ -60,7 +62,7 @@ header {
   justify-content:space-between;
   align-items: center;
   width: 100%;
-  padding: 0 200px;
+  padding: 0 15%;
   z-index: 500;
   top: 0;
   position: fixed;
@@ -70,7 +72,6 @@ header {
 
 #logo {
   width: 150px;
-  color: $main-color;
   font-size: 30px;
   font-family: $sub-font;
 }
@@ -80,22 +81,18 @@ header {
 }
 
 .tbox {
-  width: 100px;
-  height: 20px;
+  width: 120px;
   margin-right: 20px;
   background: none;
   color: $color-grey;
   border: none;
-  border-bottom: solid 1px #ccc;
 }
 
 .sbox {
-  height: 20px;
-  padding: 0 180px 0 5px;
+  padding: 0 150px 0 5px;
   background: none;
   color: $color-grey;
   border: none;
-  border-bottom: solid 1px #ccc;
 }
 
 .sbtn {
@@ -109,29 +106,32 @@ header {
 
 .notice {
   text-align: center;
-  color: white;
+  color: #fff;
   background-color: #66cdaa;
 }
 
 .alert {
   text-align: center;
-  color: white;
+  color: #fff;
   background-color: $color-red;
 }
 
 //-----サイドバー共通-----
 
 #sidebar {
-  width: 160px;
-  margin-right: 80px;
+  width: 200px;
+  margin-right: 40px;
+}
+
+.sidebar-top {
+  margin-top: 20px;
+  width: 200px;
 }
 
 #nav-container {
-  position: -webkit-sticky;
+  position: -webkit-sticky; //Safari用
   position: sticky;
   top: 100px;
-  width: 100%;
-  margin: 0 auto;
   font-family: $sub-font;
 }
 
@@ -140,26 +140,18 @@ header {
   list-style: none;
 }
 
-.menu {
+.nav-menu {
+  width: 70%;
   margin: 20px 0;
   border-bottom: solid 1px $main-color;
-}
-
-.category-list {
-  margin-top: 80px;
 }
 
 .nav-li {
   margin: 10px 0;
 }
 
-.link {
-  color: $main-color;
-  transition: color 0.2s;
-
-  &:hover {
-    color: $hov-color;
-  }
+.category-list {
+  margin-top: 80px;
 }
 
 .sns {
@@ -176,11 +168,14 @@ header {
   margin-bottom: 10px;
 }
 
-//---サイドバー（ユーザー詳細画面）---
-
-.sidebar-top {
-  margin-top: 62px;
+.sns-msg {
+  position: relative;
+  top: 70px;
+  left: 50px;
+  font-size: 12px;
 }
+
+//---サイドバー（ユーザー詳細画面）---
 
 .profile {
   padding-top: 20px;
@@ -189,8 +184,7 @@ header {
 .profile-header {
   display: flex;
   justify-content:space-between;
-  width: 100%;
-  margin: 30px auto;
+  margin: 20px auto;
   border-bottom: solid 1px $main-color;
 }
 
@@ -210,7 +204,7 @@ header {
 .follow-btn {
   width: 140px;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 20px;
 }
 
 .btn {
@@ -218,9 +212,13 @@ header {
   margin-top: 10px;
 }
 
-.profile-list, .introduction {
+.profile-list {
   margin: 0 auto;
   padding-bottom: 20px;
+}
+
+.introduction {
+  margin-bottom: 100px;
 }
 
 //-----メイン画面-----
@@ -228,17 +226,16 @@ header {
 #container {
   display: flex;
   width: 1000px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 #main-contents {
   width: 100%;
-  margin: 60px auto 20px;
+  margin: 30px auto;
 }
 
 #skippr {
   height: 400px;
-  margin: 0 auto 30px;
 }
 
 .image1 {
@@ -268,15 +265,19 @@ header {
 .more {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 
   .more-btn {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     background: $background;
     border: none;
+    color: $main-color;
+    transition: color 0.2s;
 
     &:hover {
       cursor: pointer;
+      color: $hov-color;
     }
   }
 }
@@ -296,14 +297,13 @@ select {
 }
 
 .sort-btn {
-  color: $color-grey;
+  color: $main-color;
   background: none;
   border: none;
   cursor: pointer;
 
   &:hover {
-    color: $main-color;
-    border-bottom: solid 1px $main-color;
+    color: $hov-color;
   }
 }
 
@@ -333,7 +333,13 @@ select {
   margin-bottom: 25px;
   border-radius: 3%;
   border: solid 1px $background;
-  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.6;
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.3);
+  }
 }
 
 .info {
@@ -466,16 +472,14 @@ nav.pagination {
 
 .cbtn {
   background: $cmt-background;
-  padding: 10px;
-  margin-top: 10px;
-  color: $color-grey;
+  padding: 10px 100px;
+  margin-top: 20px;
   border-radius: 10px;
-  border: none;
+  border: solid 1px #ccc;
   cursor: pointer;
 
   &:hover {
-    color: #fff;
-    background: $main-color;
+    opacity: 0.6;
   }
 }
 
@@ -494,6 +498,10 @@ nav.pagination {
 .comment {
   display: flex;
   align-items: center;
+}
+
+.comment-form {
+  text-align: center;
 }
 
 .right {
