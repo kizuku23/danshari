@@ -39,11 +39,11 @@
             <td><%= user.posts.count %></td>
           </tr>
           <tr>
-            <td><%= link_to 'フォロー', user_follows_path(user), class: "link" %></td>
+            <td><%= link_to 'フォロー', user_follows_path(user) %></td>
             <td><%= user.follower.count %></td>
           </tr>
           <tr>
-            <td><%= link_to 'フォロワー', user_followers_path(user), class: "link" %></td>
+            <td><%= link_to 'フォロワー', user_followers_path(user) %></td>
             <td><%= user.followed.count %></td>
           </tr>
           <tr>
@@ -62,25 +62,30 @@
   <!-- サイドバー -->
   <nav id="nav-container">
     <ul class="nav-contents">
-      <li class="nav menu">MENU</li>
-      <li class="nav-li"><%= link_to 'HOME', root_path, class: 'link' %></li>
+      <li class="nav-menu">MENU</li>
+      <li class="nav-li"><%= link_to 'HOME', root_path %></li>
       <% if user_signed_in? %>
-        <li class="nav-li"><%= link_to 'PROFILE', user_path(current_user), class: 'link' %> <i class="fas fa-user-circle"></i></li>
-        <li class="nav-li"><%= link_to 'UPLOAD', new_post_path, class: 'link' %> <i class="fas fa-image"></i></li>
-        <li class="nav-li"><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'link' %></li>
+        <li class="nav-li"><%= link_to 'PROFILE', user_path(current_user) %> <i class="fas fa-user-circle"></i></li>
+        <li class="nav-li"><%= link_to 'UPLOAD', new_post_path %> <i class="fas fa-image"></i></li>
+        <li class="nav-li"><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li class="nav-li"><%= link_to 'ABOUT', about_path, class: 'link' %></li>
-        <li class="nav-li"><%= link_to 'LOG IN', new_user_session_path, class: 'link' %> <i class="fas fa-sign-in-alt"></i></li>
+        <li class="nav-li"><%= link_to 'ABOUT', about_path %></li>
+        <li class="nav-li"><%= link_to 'LOG IN', new_user_session_path %> <i class="fas fa-sign-in-alt"></i></li>
       <% end %>
-      <li class="nav menu category-list">CATEGORY</li>
-      <li class="nav-li"><%= link_to 'PHOTOS', category_posts_path(1), method: :get, class: "link" %></li>
-      <li class="nav-li"><%= link_to 'IDEAS', category_posts_path(2), method: :get, class: "link" %></li>
+      <li class="nav-menu category-list">CATEGORY</li>
+      <li class="nav-li"><%= link_to 'PHOTOS', category_posts_path(1), method: :get %></li>
+      <li class="nav-li"><%= link_to 'IDEAS', category_posts_path(2), method: :get %></li>
     </ul>
     <div class="sns">
       <p class="sns-header">SNS</p>
       <i class="fab fa-instagram fa-2x"></i><br>
       <i class="fab fa-twitter fa-2x"></i><br>
       <i class="fab fa-facebook fa-2x"></i>
+    </div>
+    <div class="sns-msg">
+      ／ <br>
+      Follow us! <br>
+      ＼
     </div>
   </nav>
 </div>
