@@ -3,6 +3,11 @@ Rails.application.routes.draw do
              controllers: { registrations: 'users/registrations' },
              path_names: { edit: ':id/edit' }
 
+  # guest user
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+
   root 'posts#top'
   get 'about' => 'posts#about'
   get 'tags/:tag', to: 'posts#index', as: :tag

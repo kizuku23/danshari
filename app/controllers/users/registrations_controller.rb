@@ -60,6 +60,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  before_action :check_guest, only: [:update]
+
   protected
 
   def configure_permitted_parameters
@@ -81,5 +83,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     user_path(current_user)
+  end
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to user_path(11), alert: 'ゲストユーザーは変更できません。'
+    end
   end
 end
