@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users,
-  controllers: { registrations: 'users/registrations' },
-  path_names: {edit: ':id/edit'}
+             controllers: { registrations: 'users/registrations' },
+             path_names: { edit: ':id/edit' }
 
   root 'posts#top'
   get 'about' => 'posts#about'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'search' => 'users#search'
   get 'sort' => 'posts#sort'
-  get   'inquiry' => 'inquiry#index'
-  post  'inquiry/confirm' => 'inquiry#confirm'
-  post  'inquiry/thanks' => 'inquiry#thanks'
+  get 'inquiry' => 'inquiry#index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry/thanks' => 'inquiry#thanks'
 
   resources :posts do
     get 'category/:id' => 'posts#category', as: 'category', on: :collection

@@ -1,18 +1,19 @@
 <div id="sidebar">
 
-  <!-- プロフィールを表示 -->
+  <!-- 詳細画面でプロフィールを表示 -->
   <% if controller.action_name == 'show' %>
     <div class="profile">
       <div class="profile-header">
-        <!-- プロフィール編集アイコンを表示 -->
+        <!-- current_userであれば編集アイコンを表示 -->
         <% if current_user == user %>
           PROFILE
-          <%= link_to edit_user_registration_path(current_user), class: "edit" do %>
+          <%= link_to edit_user_registration_path(current_user) do %>
             <i class="fas fa-cog"></i>
           <% end %>
         <% else %>
           PROFILE
         <% end %>
+        <!-- ここまで -->
       </div>
       <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
       <br>
@@ -26,12 +27,13 @@
           <span class="profile-info-item"><%= user.age %></span>
           <span class="profile-info-item"><%= user.gender %></span>
         </div>
-      <!-- フォローボタンを表示 -->
+      <!-- current_userでなければフォローボタンを表示 -->
       <% if current_user != user %>
         <div class="follow-btn following_buttons_<%= user.id %>">
           <%= render 'relationships/relationship', user: @user %>
         </div>
       <% end %>
+      <!-- ここまで -->
       <table class="profile-list profile-info-item">
         <tbody>
           <tr>
@@ -59,7 +61,7 @@
     </div>
   <% end %>
 
-  <!-- サイドバー -->
+  <!-- 共通サイドバー -->
   <nav id="nav-container">
     <ul class="nav-contents">
       <li class="nav-menu">MENU</li>
@@ -83,8 +85,8 @@
       <i class="fab fa-facebook fa-2x"></i>
     </div>
     <div class="sns-msg">
-      ／ <br>
-      Follow us! <br>
+      ／<br>
+      Follow us!<br>
       ＼
     </div>
   </nav>
