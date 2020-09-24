@@ -6,10 +6,12 @@
     <div id="headline">
       <h3><%= @post.user.name %> さんの写真</h3>
       <div>
+        <!-- current_userであれば編集削除ボタン表示 -->
         <% if @post.user == current_user %>
           <%= link_to '編集', edit_post_path(@post), class: "edit-btn" %>
           <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'}, class: "del-btn" %>
         <% end %>
+        <!-- ここまで -->
       </div>
     </div>
     <div class="post-detail">
@@ -41,5 +43,5 @@
       </div>
 
     </div>
-
+  </div>
 </div>

@@ -4,6 +4,7 @@
 
   <div id="main-contents">
     <div id="headline">
+      <!-- categoryから飛んだ場合のheadline -->
       <% if controller.action_name == "category" %>
         <h3>カテゴリー : <%= @category.name %></h3>
       <% else %>

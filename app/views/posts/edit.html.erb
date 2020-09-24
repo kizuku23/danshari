@@ -1,7 +1,8 @@
 <div id="container">
-
   <div class="sidebar-top">
+
     <%= render 'users/sidebar' %>
+
   </div>
 
   <div id="main-contents">
@@ -21,7 +22,7 @@
       <table class="table3">
         <tr>
           <th>カテゴリー</th>
-          <td><%= f.select :category_id, Category.all.map{|o| [o.name, o.id]}, { include_blank: '選択してください'} %></td>
+          <td><%= f.select :category_id, Category.all.map{|o| [o.name, o.id]}, { include_blank: '選択してください' } %></td>
         </tr>
         <tr>
           <th>タグ名</th>
