@@ -338,7 +338,7 @@ select {
   transition: 0.2s;
 
   &:hover {
-    opacity: 0.6;
+    opacity: 0.75;
     box-shadow: 0 6px 6px 0 rgba(0,0,0,0.3);
   }
 }
@@ -422,7 +422,8 @@ nav.pagination {
 
 .del-btn {
   font-weight: bold;
-  margin-left: 20px;
+  margin: 0 0 20px 20px;
+  float: right;
 
   &:hover {
     color: $color-red;
@@ -505,18 +506,16 @@ nav.pagination {
   text-align: center;
 }
 
-.right {
+.post-date {
   float: right;
+  font-size: 12px;
+}
+
+.comment-date {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 12px;
   margin-bottom: 10px;
-}
-
-.time {
-  float: right;
-  font-size: 12px;
-}
-
-.size {
-  font-size: 12px;
 }
 
 //-----aboutページ-----
