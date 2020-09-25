@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function() {
   $('.grid').jscroll({
     contentSelector: '.grid',
     nextSelector: 'span.next a',
-    loadingHtml: 'now loading'
+    loadingHtml: 'Now Loading'
   });
   // フラッシュメッセージのフェードアウト
   $("#flash").fadeOut(5000);

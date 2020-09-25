@@ -6,13 +6,11 @@
       <% end %>
     </div>
     <%= post_comment.user.name %>
-
   </div>
   <div class="comment-text"><%= post_comment.comment %></div>
+  <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+  <!-- current_userの場合は削除ボタンを表示 -->
   <% if current_user == post_comment.user %>
-    <span class="right">
-      <span class="size"><%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
-      <%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'}, remote: true, class: "del-btn" %>
-    </span>
+    <%= link_to '削除', post_post_comment_path(@post, post_comment), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'}, remote: true, class: "del-btn" %>
   <% end %>
 <% end %>

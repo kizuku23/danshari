@@ -22,7 +22,7 @@
           <%= render 'likes/like', post: @post %>
         </span>
         <i class="far fa-comment"><span class="count"><%= @post.post_comments.count %></span></i>
-        <span class="time"><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+        <span class="post-date"><%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
         <span class="category">category : <%= @post.category.name %></span>
       </div>
 

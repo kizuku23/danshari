@@ -28,12 +28,13 @@
       </div>
 
       <div><br />
-        <%= f.text_field :message, autofocus: true, placeholder: "お問い合わせ内容を入力", class: "fields" %>
+        <%= f.text_area :message, size: "60x10", autofocus: true, placeholder: "お問い合わせ内容を入力", class: "fields" %>
       </div>
 
       <div><br />
         <%= f.submit '確認', class: "ubtn" %>
       </div>
     <% end %>
+
   </div>
 </div>
