@@ -14,553 +14,1011 @@
  *= require_self
  */
 
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Rajdhani:wght@300;400&display=swap');
-
-//---変数設定---
-
-$main-color: #3d5572;
-$hov-color: #b0c4de;
-$color-grey: #666;
-$color-red: #dc3c36;
-$background: #f9f9f9;
-$cmt-background: #f0f0f0;
-$sub-font: 'Rajdhani', sans-serif;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: $main-color;
-  transition: color 0.2s;
-
-  &:hover {
-    color: $hov-color;
-  }
-}
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  color: $main-color;
-  background-color: $background;
-}
-
-//---ヘッダー・検索ボックス---
-
-header {
-  width: 100%;
-  height: 38px;
-}
-
-#header {
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 15%;
-  z-index: 500;
-  top: 0;
-  position: fixed;
-  background-color: rgba(255,255,255,0.8);
-  box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
-}
-
-#logo {
-  width: 150px;
-  font-size: 30px;
-  font-family: $sub-font;
-}
-
-.sform {
-  width: 500px;
-}
-
-.tbox {
-  width: 120px;
-  margin-right: 20px;
-  background: none;
-  color: $color-grey;
-  border: none;
-}
-
-.sbox {
-  padding: 0 150px 0 5px;
-  background: none;
-  color: $color-grey;
-  border: none;
-}
-
-.sbtn {
-  background: none;
-  color: $color-grey;
-  border: none;
-  cursor: pointer;
-}
-
-//---フラッシュメッセージ---
-
-.notice {
-  text-align: center;
-  color: #fff;
-  background-color: #66cdaa;
-}
-
-.alert {
-  text-align: center;
-  color: #fff;
-  background-color: $color-red;
-}
-
-//-----サイドバー共通-----
-
-#sidebar {
-  width: 200px;
-  margin-right: 40px;
-}
-
-.sidebar-top {
-  margin-top: 20px;
-  width: 200px;
-}
-
-#nav-container {
-  position: -webkit-sticky; //Safari用
-  position: sticky;
-  top: 100px;
-  font-family: $sub-font;
-}
-
-.nav-contents {
-  font-size: 20px;
-  list-style: none;
-}
-
-.nav-menu {
-  width: 70%;
-  margin: 20px 0;
-  border-bottom: solid 1px $main-color;
-}
-
-.nav-li {
-  margin: 10px 0;
-}
-
-.category-list {
-  margin-top: 80px;
-}
-
-.sns {
-  position: relative;
-  top: 150px;
-  font-size: 12px;
-}
-
-.sns-header {
-  margin-bottom: 15px;
-}
-
-.fab {
-  margin-bottom: 10px;
-}
-
-.sns-msg {
-  position: relative;
-  top: 70px;
-  left: 50px;
-  font-size: 12px;
-}
-
-//---サイドバー（ユーザー詳細画面）---
-
-.profile {
-  padding-top: 20px;
-}
-
-.profile-header {
-  display: flex;
-  justify-content:space-between;
-  margin: 20px auto;
-  border-bottom: solid 1px $main-color;
-}
-
-.profile-name {
-  text-align: center;
-  font-size: 18px;
-}
-
-.profile-info {
-  text-align: center;
-}
-
-.profile-info-item {
-  font-size: 12px;
-}
-
-.follow-btn {
-  width: 140px;
-  display: block;
-  margin: 10px auto 20px;
-}
-
-.fbtn {
-  width: 100%;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.profile-list {
-  margin: 0 auto;
-  padding-bottom: 20px;
-}
-
-.introduction {
-  margin-bottom: 100px;
-}
-
-//-----メイン画面-----
-
-#container {
-  display: flex;
-  width: 1000px;
-  margin: 30px auto;
-}
-
-#main-contents {
-  width: 100%;
-  margin: 30px auto;
-}
-
-#skippr {
-  height: 400px;
-}
-
-.image1 {
-  background-image: image-url("photo1.jpg");
-}
-.image2 {
-  background-image: image-url("photo2.jpg");
-}
-.image3 {
-  background-image: image-url("photo3.jpg");
-}
-.image4 {
-  background-image: image-url("photo4.jpg");
-}
-.image5 {
-  background-image: image-url("photo5.jpg");
-}
-
-#headline {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 6px;
-  margin-bottom: 30px;
-  box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
-}
-
-.more {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-  .more-btn {
-    font-size: 17px;
-    font-weight: bold;
-    background: $background;
-    border: none;
-    color: $main-color;
-    transition: color 0.2s;
-
-    &:hover {
-      cursor: pointer;
-      color: $hov-color;
-    }
-  }
-}
-
-//-----ソートボタン-----
-
-select {
-  border: solid 1px #ccc;
-  cursor: pointer;
-}
-
-.sort {
-  color: $color-grey;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.sort-btn {
-  color: $main-color;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    color: $hov-color;
-  }
-}
-
-//-----写真一覧-----
-
-.content {
-  width: 100%;
-}
-
-//jscrollが生成するクラスにも指定
-.grid, .jscroll-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  width: 100%;
-  font-size: 15px;
-  list-style: none;
-}
-
-//jscroll+kaminariのpagenationで生じるズレの修正
-.post {
-  margin-right: 42px;
-}
-
-.post-item {
-  width: 220px;
-  margin-bottom: 25px;
-  border-radius: 3%;
-  border: solid 1px $background;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
-  transition: 0.2s;
-
-  &:hover {
-    opacity: 0.75;
-    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.3);
-  }
-}
-
-.info {
-  margin: 5px;
-}
-
-.info-user {
-  margin: 5px auto;
-}
-
-.info-font {
-  font-size: 10px;
-}
-
-.info-user-name {
-  padding-left: 5px;
-  font-size: 16px;
-}
-
-.info-tag {
-  margin-bottom: 5px;
-}
-
-.info-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  background-color: #f0f0f0;
-}
-
-.img {
-  display: block;
-  margin: 0 auto;
-}
-
-.img-circle {
-  border-radius: 50%;
-}
-
-.img-round {
-  border-radius: 5%;
-}
-
-.hover-red:hover {
-  color: $color-red;
-}
-
-.i, .fas, .far, .count {
-  font-size: 0.8em;
-  text-decoration: none;
-  color: $main-color;
-}
-
-.red {
-  color: $color-red;
-}
-
-.category {
-  font-size: 0.8em;
-  float: right;
-  padding-right: 10px;
-}
-
-nav.pagination {
- display: none;
- width: 100%;
-}
-
-//---写真詳細画面---
-
-.edit-btn {
-  font-weight: bold;
-
-  &:hover {
-    color: $hov-color;
-  }
-}
-
-.del-btn {
-  font-weight: bold;
-  margin: 0 0 20px 20px;
-  float: right;
-
-  &:hover {
-    color: $color-red;
-  }
-}
-
-.post-detail {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.img-detail {
-  display: block;
-  margin: 30px auto;
-  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
-}
-
-.likes {
-  margin-bottom: 20px;
-}
-
-.badge-group {
-  margin: 20px;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.badge {
-  margin-top: 5px;
-  margin-right: 5px;
-  border-radius: 8px;
-  background: $cmt-background;
-  padding: 1px 5px;
-  overflow: hidden;
-  color: $main-color;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.text {
-  margin-bottom: 20px;
-  background: $cmt-background;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.cbtn {
-  background: $cmt-background;
-  padding: 10px 100px;
-  margin-top: 20px;
-  border-radius: 10px;
-  border: solid 1px #ccc;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.comment-user {
-  margin-right: 20px;
-}
-
-.comment-text {
-  padding: 10px;
-  margin-left: 70px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  background: #f0f0f0;
-}
-
-.comment {
-  display: flex;
-  align-items: center;
-}
-
-.comment-form {
-  text-align: center;
-}
-
-.post-date {
-  float: right;
-  font-size: 12px;
-}
-
-.comment-date {
-  display: flex;
-  flex-direction: row-reverse;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-//-----aboutページ-----
-
-.about {
-  display: flex;
-}
-
-.about-background {
-  width: 450px;
-  height: 400px;
-  margin-top: 80px;
-  background-image: image-url("photo-about.jpeg");
-  background-position: center;
-  background-size: cover;
-  box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
-  border-radius: 3px;
-}
-
-.about-headline {
-  font-family: $sub-font;
-  border-bottom: solid 1px $main-color;
-}
-
-.about-headline-sub {
-  padding-top: 5px;
-  float: right;
-}
-
-.about-wrap {
-  width: 65%;
-  padding: 120px 80px ;
-}
-
-.about-textbox {
-  margin-top: 60px;
-}
-
-.about-text {
-  line-height: 30px;
-}
-
-.guest {
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-style: oblique;
-  font-weight: bold;
-}
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Rajdhani:wght@300;400&display=swap');
+ 
+ /*-------------*/
+ /*---変数設定---*/
+ /*-------------*/
+ 
+ $main-color: #3d5572;
+ $hov-color: #b0c4de;
+ $color-grey: #666;
+ $color-red: #dc3c36;
+ $background: #f9f9f9;
+ $cmt-background: #f0f0f0;
+ $sub-font: 'Rajdhani', sans-serif;
+ 
+ /*-------------*/
+ /*---共通設定---*/
+ /*-------------*/
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ a {
+   text-decoration: none;
+   color: $main-color;
+   transition: color 0.2s;
+ 
+   &:hover {
+     color: $hov-color;
+   }
+ }
+ 
+ body {
+   font-family: 'Noto Sans JP', sans-serif;
+   color: $main-color;
+   background-color: $background;
+ }
+ 
+ /* ヘッダー・検索ボックス */
+ 
+ header {
+   width: 100%;
+   height: 38px;
+ }
+ 
+ #header {
+   align-items: center;
+   width: 100%;
+   z-index: 500;
+   top: 0;
+   position: fixed;
+   background-color: rgba(255,255,255,0.8);
+   box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
+ }
+ 
+ #logo {
+   width: 150px;
+   font-size: 30px;
+   font-family: $sub-font;
+ }
+ 
+ .tbox {
+   background: none;
+   border: none;
+ }
+ 
+ .sbox {
+   background: none;
+   border: none;
+ }
+ 
+ .sbtn {
+   background: none;
+   border: none;
+ }
+ 
+ /* サイドバー共通 */
+ 
+ #sidebar {
+   width: 200px;
+   margin-right: 40px;
+ }
+ 
+ .sidebar-top {
+   margin-top: 20px;
+   width: 200px;
+ }
+ 
+ #nav-container {
+   position: -webkit-sticky; //Safari用
+   position: sticky;
+   top: 100px;
+   font-family: $sub-font;
+ }
+ 
+ .nav-contents {
+   font-size: 20px;
+   list-style: none;
+ }
+ 
+ .nav-menu {
+   width: 70%;
+   margin: 20px 0;
+   border-bottom: solid 1px $main-color;
+ }
+ 
+ .nav-li {
+   margin: 10px 0;
+ }
+ 
+ .category-list {
+   margin-top: 80px;
+ }
+ 
+ .sns {
+   position: relative;
+   font-size: 12px;
+ }
+ 
+ .sns-header {
+   margin-bottom: 15px;
+ }
+ 
+ .fab {
+   margin-bottom: 10px;
+ }
+ 
+ .sns-msg {
+   position: relative;
+   left: 50px;
+   font-size: 12px;
+ }
+ 
+ /* サイドバー（ユーザー詳細画面） */
+ 
+ .profile {
+   padding-top: 20px;
+ }
+ 
+ .profile-header {
+   display: flex;
+   justify-content:space-between;
+   margin: 20px auto;
+   border-bottom: solid 1px $main-color;
+ }
+ 
+ .profile-name {
+   text-align: center;
+   font-size: 18px;
+ }
+ 
+ .profile-info {
+   text-align: center;
+ }
+ 
+ .profile-info-item {
+   font-size: 12px;
+ }
+ 
+ .follow-btn {
+   width: 140px;
+   display: block;
+   margin: 10px auto 20px;
+ }
+ 
+ .fbtn {
+   width: 100%;
+   margin-top: 10px;
+   cursor: pointer;
+ }
+ 
+ .profile-list {
+   margin: 0 auto;
+   padding-bottom: 20px;
+ }
+ 
+ .introduction {
+   margin-bottom: 100px;
+ }
+ 
+ #headline {
+   display: flex;
+   justify-content: space-between;
+   padding: 6px 6px;
+   margin-bottom: 30px;
+   box-shadow: 0 1.4px 0 0 rgba(0,0,0,0.1);
+ }
+ 
+ .more {
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+ 
+   .more-btn {
+     font-size: 17px;
+     font-weight: bold;
+     background: $background;
+     border: none;
+     color: $main-color;
+     transition: color 0.2s;
+ 
+     &:hover {
+       cursor: pointer;
+       color: $hov-color;
+     }
+   }
+ }
+ 
+ /* ソートボタン */
+ 
+ select {
+   cursor: pointer;
+ }
+ 
+ .sort {
+   color: $color-grey;
+   background: none;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ .sort-btn {
+   color: $main-color;
+   background: none;
+   border: none;
+   cursor: pointer;
+ 
+   &:hover {
+     color: $hov-color;
+   }
+ }
+ 
+ /* 写真一覧　*/
+ 
+ /* jscrollが生成するクラスにも指定 */
+ .grid, .jscroll-inner {
+   font-size: 15px;
+   list-style: none;
+ }
+ 
+ .post-item {
+   border-radius: 3%;
+   border: solid 1px $background;
+   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+   transition: 0.2s;
+ 
+   &:hover {
+     opacity: 0.75;
+     box-shadow: 0 6px 6px 0 rgba(0,0,0,0.3);
+   }
+ }
+ 
+ .hover-red:hover {
+   color: $color-red;
+ }
+ 
+ /* skipprイメージ */
+ 
+ .image1 {
+   background-image: image-url("photo1.jpg");
+ }
+ .image2 {
+   background-image: image-url("photo2.jpg");
+ }
+ .image3 {
+   background-image: image-url("photo3.jpg");
+ }
+ .image4 {
+   background-image: image-url("photo4.jpg");
+ }
+ .image5 {
+   background-image: image-url("photo5.jpg");
+ }
+ 
+ /* ゲストログイン */
+ 
+ .guest {
+   margin-bottom: 20px;
+   font-size: 18px;
+   font-style: oblique;
+   font-weight: bold;
+ }
+ 
+ /* フラッシュメッセージ */
+ 
+ .notice {
+   text-align: center;
+   color: #fff;
+   background-color: #66cdaa;
+ }
+ 
+ .alert {
+   text-align: center;
+   color: #fff;
+   background-color: $color-red;
+ }
+ 
+ /* 写真一覧共通 */
+ 
+ .info {
+   margin: 5px;
+ }
+ 
+ .info-user {
+   margin: 5px auto;
+ }
+ 
+ .info-font {
+   font-size: 10px;
+ }
+ 
+ .info-user-name {
+   padding-left: 5px;
+   font-size: 16px;
+ }
+ 
+ .info-tag {
+   margin-bottom: 5px;
+ }
+ 
+ .info-description {
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+   overflow: hidden;
+   background-color: #f0f0f0;
+ }
+ 
+ .img-circle {
+   border-radius: 50%;
+ }
+ 
+ .img-round {
+   border-radius: 5%;
+ }
+ 
+ .i, .fas, .far, .count {
+   font-size: 0.8em;
+   text-decoration: none;
+   color: $main-color;
+ }
+ 
+ .red {
+   color: $color-red;
+ }
+ 
+ .category {
+   font-size: 0.8em;
+   float: right;
+   padding-right: 10px;
+ }
+ 
+ nav.pagination {
+   display: none;
+   width: 100%;
+ }
+ 
+ /* 写真詳細画面共通 */
+ 
+ .img-detail {
+   display: block;
+   margin: 30px auto;
+   box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+ }
+ 
+ .likes {
+   margin-bottom: 20px;
+ }
+ 
+ .badge-group {
+   margin: 20px;
+   height: auto;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: flex-start;
+ }
+ 
+ .badge {
+   margin-top: 5px;
+   margin-right: 5px;
+   border-radius: 8px;
+   background: $cmt-background;
+   padding: 1px 5px;
+   overflow: hidden;
+   color: $main-color;
+   font-size: 12px;
+   font-weight: bold;
+ }
+ 
+ .text {
+   margin-bottom: 20px;
+   background: $cmt-background;
+   border-radius: 10px;
+   padding: 10px;
+ }
+ 
+ .comment-user {
+   margin-right: 20px;
+ }
+ 
+ .comment-text {
+   padding: 10px;
+   margin-left: 70px;
+   margin-bottom: 10px;
+   border-radius: 10px;
+   background: #f0f0f0;
+ }
+ 
+ .comment {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .comment-form {
+   text-align: center;
+ }
+ 
+ .post-date {
+   float: right;
+   font-size: 12px;
+ }
+ 
+ .comment-date {
+   display: flex;
+   flex-direction: row-reverse;
+   font-size: 12px;
+   margin-bottom: 10px;
+ }
+ 
+ /* 写真詳細画面 */
+ 
+ .edit-btn {
+   font-weight: bold;
+ 
+   &:hover {
+     color: $hov-color;
+   }
+ }
+ 
+ .del-btn {
+   font-weight: bold;
+   margin: 0 0 20px 20px;
+   float: right;
+ 
+   &:hover {
+     color: $color-red;
+   }
+ }
+ 
+ .cbtn {
+   background: $cmt-background;
+   margin-top: 20px;
+   border-radius: 10px;
+   border: solid 1px #ccc;
+   cursor: pointer;
+ 
+   &:hover {
+     opacity: 0.6;
+   }
+ }
+ 
+ /* aboutページ共通 */
+ 
+ .about-background {
+   background-image: image-url("photo-about.jpeg");
+   background-position: center;
+   background-size: cover;
+   box-shadow: 8px 8px 8px rgba(0,0,0,0.3);
+   border-radius: 3px;
+ }
+ 
+ .about-headline {
+   font-family: $sub-font;
+   border-bottom: solid 1px $main-color;
+ }
+ 
+ .about-headline-sub {
+   padding-top: 5px;
+   float: right;
+ }
+ 
+ .about-text {
+   line-height: 30px;
+ }
+ 
+ /*-----------------------------------*/
+ /*---PC（960px）以上の際に適用される設定----*/
+ /*-----------------------------------*/
+ 
+ @media screen and (min-width: 960px) {
+ 
+ /* ヘッダー・検索ボックス */
+ 
+   #header {
+     display: flex;
+     justify-content:space-between;
+     padding: 0 15%;
+   }
+ 
+   // spメニューを非表示
+   #sp-menu {
+     display: none;
+   }
+ 
+   .sform {
+     width: 500px;
+   }
+ 
+   .tbox {
+     width: 120px;
+     margin-right: 20px;
+     color: $color-grey;
+   }
+ 
+   .sbox {
+     padding: 0 150px 0 5px;
+     color: $color-grey;
+   }
+ 
+   .sbtn {
+     color: $color-grey;
+     cursor: pointer;
+   }
+ 
+   /* サイドバー */
+ 
+   .sns {
+     top: 150px;
+   }
+ 
+   .sns-msg {
+     top: 70px;
+   }
+ 
+   // スマホ用プロフィール非表示
+   .profile-hide {
+     display: none;
+   }
+ 
+   /* メイン画面 */
+ 
+   #container {
+     display: flex;
+     width: 920px;
+     margin: 30px auto;
+   }
+ 
+   #main-contents {
+     width: 100%;
+     margin: 30px auto;
+   }
+ 
+   #skippr {
+     height: 400px;
+   }
+ 
+   /* 写真一覧 */
+ 
+   /* jscrollが生成するクラスにも指定 */
+   .grid, .jscroll-inner {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: start;
+     width: 100%;
+   }
+ 
+   /* jscroll+kaminariのpagenationで生じるズレの修正 */
+   .post {
+     margin-right: 20px;
+   }
+ 
+   .post-item {
+     width: 220px;
+     margin-bottom: 25px;
+   }
+ 
+   .img-side {
+     display: block;
+     margin: 0 auto;
+   }
+ 
+   /* 写真詳細画面 */
+  
+   .post-detail {
+     width: 80%;
+     margin: 0 auto;
+   }
+ 
+   .cbtn {
+     padding: 10px 100px;
+   }
+ 
+   /* aboutページ */
+ 
+   .about {
+     display: flex;
+   }
+ 
+   .about-background {
+     width: 450px;
+     height: 400px;
+     margin-top: 80px;
+   }
+ 
+   .about-wrap {
+     width: 65%;
+     padding: 120px 80px ;
+   }
+ 
+   .about-textbox {
+     margin-top: 60px;
+   }
+ }
+ 
+ /*-------------------------------------------*/
+ /* タブレットサイズ（560px~959px）の際に適用される設定 */
+ /*------------------------------------------*/
+ 
+ @media screen and (min-width:560px) and (max-width: 959px) {
+ 
+ /* ヘッダー・検索ボックス */
+ 
+   #header {
+     display: flex;
+     justify-content:space-between;
+     padding: 0 5%;
+   }
+ 
+   // spメニューを非表示
+   #sp-menu {
+     display: none;
+   }
+ 
+   .sform {
+     width: 100%;
+   }
+ 
+   .tbox {
+     width: 120px;
+     margin-right: 10px;
+     color: $color-grey;
+   }
+ 
+   .sbox {
+     padding: 0 30px 0 5px;
+     color: $color-grey;
+   }
+ 
+   .sbtn {
+     color: $color-grey;
+   }
+ 
+   /* サイドバー */
+ 
+   .sns {
+     top: 100px;
+   }
+ 
+   .sns-msg {
+     top: 15px;
+   }
+ 
+   // スマホ用プロフィール非表示
+   .profile-hide {
+     display: none;
+   }
+ 
+   /* メイン画面 */
+ 
+   #container {
+     display: flex;
+     width: 95%;
+     margin: 30px auto;
+   }
+ 
+   #main-contents {
+     width: 100%;
+     margin: 30px auto;
+   }
+ 
+   #skippr {
+     height: 300px;
+   }
+ 
+   /* 写真一覧 */
+ 
+   /* jscrollが生成するクラスにも指定 */
+   .grid, .jscroll-inner {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: start;
+     width: 100%;
+   }
+ 
+   /* jscroll+kaminariのpagenationで生じるズレの修正 */
+   .post {
+     margin-right: 42px;
+   }
+ 
+   .post-item {
+     width: 300px;
+     margin-bottom: 25px;
+   }
+ 
+   .img {
+     width: 100%;
+     max-width: 100%;
+     height: 300px;
+   }
+ 
+   .img-side {
+     display: block;
+     margin: 0 auto;
+   }
+ 
+   /* 写真詳細画面 */
+ 
+   .post-detail {
+     width: 80%;
+     margin: 0 auto;
+   }
+ 
+   .cbtn {
+     padding: 10px 100px;
+   }
+ 
+   /* aboutページ */
+ 
+   .about {
+     margin-right: 10px;
+   }
+ 
+   .about-background {
+     height: 400px;
+   }
+ 
+   .about-wrap {
+     margin-top: 30px;
+   }
+ 
+   .about-textbox {
+     margin-top: 30px;
+   }
+ }
+ 
+ /*------------------------------------------*/
+ /* スマートフォンサイズ（559px）以下の際に適用される設定 */
+ /*------------------------------------------*/
+ 
+ @media screen and (max-width:559px) {
+ 
+   /* ヘッダー・検索ボックス */
+   
+   #logo {
+     margin-left: 10px;
+   }
+ 
+   /* ハンバーガーアイコン */
+ 
+   #hm-icon{
+     position: fixed;
+     right: 12px;
+     top: 8px;
+     z-index: 10;
+   }
+ 
+   .menu-trigger,
+   .menu-trigger span {
+     display: inline-block;
+     transition: all .4s;
+     box-sizing: border-box;
+   }
+ 
+   .menu-trigger {
+     position: relative;
+     width: 25px;
+     height: 16px;
+   }
+ 
+   .menu-trigger span {
+     position: absolute;
+     left: 0;
+     width: 100%;
+     height: 2px;
+     background-color: $main-color;
+     border-radius: 1px;
+   }
+ 
+   .menu-trigger span:nth-of-type(1) {
+     top: 0;
+   }
+ 
+   .menu-trigger span:nth-of-type(2) {
+     top: 7px;
+   }
+ 
+   .menu-trigger span:nth-of-type(3) {
+     bottom: 0;
+   }
+ 
+   .menu-trigger.active span:nth-of-type(1) {
+     -webkit-transform: translateY(4px) rotate(-45deg);
+     transform: translateY(4px) rotate(-45deg);
+     background-color: #fff;
+   }
+ 
+   .menu-trigger.active span:nth-of-type(2) {
+     opacity: 0;
+   }
+ 
+   .menu-trigger.active span:nth-of-type(3) {
+     -webkit-transform: translateY(-10px) rotate(45deg);
+     transform: translateY(-10px) rotate(45deg);
+     background-color: #fff;
+   }
+ 
+   /* spメニュー */
+ 
+   #sp-menu {
+     position: fixed;
+     top: 0;
+     left: 0;
+     background: #000;
+     color: #fff;
+     width: 100%;
+     min-height: 100%;
+     display: none;
+     z-index: 9;
+     font-family:$sub-font;
+   }
+ 
+   #sp-menu li{
+     text-align: center;
+     margin-bottom: 30px;
+   }
+ 
+   #sp-menu a{
+     color: #fff;
+     text-decoration: none;
+     font-weight: bold;
+   }
+ 
+   .sp-headline {
+     width: 50%;
+     border-bottom: 1px solid #fff;
+     margin: 30px auto;
+   }
+ 
+   // spメニューの検索窓を非表示
+   #search {
+     display: none;
+   }
+ 
+   // ヘッダー側の検索窓を非表示
+   #search-hide {
+     display: none;
+   }
+ 
+   .sform {
+     width: 100%;
+   }
+   
+   .tbox {
+     display: block;
+     width: 50%;
+     margin: 10px auto;
+     color: #fff;
+   }
+   
+   .sbox {
+     width: 45%;
+     padding-left: 5px;
+     color: #fff;
+   }
+   
+   .sbtn {
+     width: 5%;
+     color: #fff;
+   }
+ 
+   // サイドバー非表示
+   #sidebar {
+     display: none;
+   }
+ 
+   /* メイン画面 */
+ 
+   #container {
+     width: 90%;
+     margin: 20px auto;
+   }
+ 
+   #skippr {
+     height: 200px;
+   }
+   
+   /* 写真一覧　*/
+ 
+   .post-item {
+     width: 95%;
+     margin: 0 auto 25px;
+   }
+ 
+   .img {
+     width:100%;
+     max-width: 100%;
+     height: 300px;
+   }
+ 
+   /* 写真詳細画面 */
+ 
+   .cbtn {
+     width: 100%;
+     padding: 10px 0;
+   }
+ 
+   .comment-area {
+     width: 100%;
+   }
+ 
+   /* スマホ用プロフィール */
+ 
+   .profile-hide {
+     width: 100%;
+   }
+ 
+   .profile-header {
+     margin: 20px auto;
+     border-bottom: solid 1px $main-color;
+   }
+ 
+   .img-side {
+     display: block;
+     margin: 0 auto;
+   }
+ 
+   .profile-name {
+     text-align: center;
+     font-size: 18px;
+   }
+ 
+   .profile-info {
+     text-align: center;
+   }
+ 
+   .profile-info-item {
+     font-size: 14px;
+   }
+ 
+   .follow-btn {
+     width: 140px;
+     display: block;
+     margin: 10px auto 20px;
+   }
+ 
+   .fbtn {
+     width: 100%;
+     margin-top: 10px;
+   }
+ 
+   .profile-list {
+     margin: 0 auto;
+     width: 80%;
+     padding-bottom: 20px;
+     font-size: 14px;
+   }
+ 
+   .profile-list td {
+     width: 100%;
+     text-align: right;
+     display: block;
+   }
+ 
+   .profile-list td:before {
+     content: attr(data-label);
+     float: left;
+     font-weight: bold;
+     margin-right: 10px;
+   }
+ 
+   .profile-follow {
+     float: left;
+     font-weight: bold;
+   }
+ 
+   .introduction {
+     margin-bottom: 30px;
+   }
+ 
+   /* aboutページ */
+ 
+   .about-background {
+     height: 300px;
+   }
+ 
+   .about-wrap {
+     margin-top: 30px;
+   }
+ 
+   .about-textbox {
+     margin-top: 30px;
+   }
+ }
+ 

@@ -3,6 +3,74 @@
   <%= render 'users/sidebar', user: @user %>
 
   <div id="main-contents">
+    <div class="profile-hide">
+      <div id="headline">
+        <h3>PROFILE</h3>
+        <!-- current_userであれば編集アイコンを表示 -->
+        <% if current_user == @user %>
+          <%= link_to edit_user_registration_path(current_user) do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+        <% end %>
+        <!-- ここまで -->
+      </div>
+
+      <%= attachment_image_tag(@user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img-side img-circle") %>
+      <div class="profile-name"><%= @user.name %></div>
+
+      <!-- current_userでなければフォローボタンを表示 -->
+      <% if current_user != @user %>
+        <div class="follow-btn following_buttons_<%= @user.id %>">
+          <%= render 'relationships/relationship', user: @user %>
+        </div>
+      <% end %>
+      <!-- ここまで -->
+
+      <table class="profile-list">
+        <tbody>
+          <tr>
+            <td data-label="年齢"><%= @user.age %></td>
+          </tr>
+          <tr>
+            <td data-label="性別"><%= @user.gender %></td>
+          </tr>
+          <tr>
+            <td data-label="居住形態"><%= @user.status %></td>
+          </tr>
+          <tr>
+            <td data-label="間取り"><%= @user.layout %></td>
+          </tr>
+          <tr>
+            <td data-label="広さ"><%= @user.area %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="profile-list">
+        <tbody>     
+          <tr>
+            <td data-label="すべての写真"><%= @user.posts.count %></td>
+          </tr>
+          <tr>
+            <td data-label="いいねした写真"><%= @user.likes.count %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'フォロー', user_follows_path(@user), class: "profile-follow" %></td>
+            <td><%= @user.follower.count %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'フォロワー', user_followers_path(@user), class: "profile-follow" %></td>
+            <td><%= @user.followed.count %></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="introduction">
+        <div class="profile-header"><h4>自己紹介</h4></div>
+        <div class="profile-info-item"><%= @user.introduction %></div>
+      </div>
+    </div>
+
     <div id="headline">
       <h3><%= @user.name %> さんの写真</h3>
     </div>

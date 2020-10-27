@@ -1,0 +1,27 @@
+<div id="sp-menu">
+  <h3 class="sp-headline">MENU</h3>
+  <ul>
+    <li><%= link_to 'HOME', root_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'PROFILE', user_path(current_user) %></li>
+      <li><%= link_to 'UPLOAD', new_post_path %></li>
+      <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'ABOUT', about_path %></li>
+      <li><%= link_to 'LOG IN', new_user_session_path %></li>
+    <% end %>
+    <h3 class="sp-headline">CATEGORY</h3>
+    <li><%= link_to 'PHOTOS', category_posts_path(1), method: :get %></li>
+    <li><%= link_to 'IDEAS', category_posts_path(2), method: :get %></li>
+    <h3 class="sp-headline">SEARCH</h3>
+    <li><%= render 'users/search' %></li>
+  </ul>
+</div>
+
+<div id="hm-icon">
+  <a class="menu-trigger" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</div>

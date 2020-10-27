@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
     // easingの種類
     easing : 'easeOutQuart',
     // ナビゲーションの形（"block" or "bubble"）
-    navType : 'block',
+    navType : 'bubble',
     // 子要素の種類（"div" or "img"）
     childrenElementType : 'div',
     // ナビゲーション矢印の表示（trueで表示）
@@ -49,6 +49,13 @@ $(document).on('turbolinks:load', function() {
     }else if((index > 0)  && (el.attr("style") != dispNone)){
       el.attr("style",dispNone);
     }
+  });
+  // ハンバーガーメニュー
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('.fas').css('color', 'white'); //サーチアイコンの色
+    $('#sp-menu, #search, .skippr-nav-container').fadeToggle(); //検索窓、skiperナビゲーションも表示切り替え
+    event.preventDefault();
   });
   // jscroll, kaminariでスクロール
   $('.grid').jscroll({

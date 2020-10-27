@@ -15,7 +15,7 @@
         <% end %>
         <!-- ここまで -->
       </div>
-      <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img img-circle") %>
+      <%= attachment_image_tag(user, :profile_image, fallback: 'no-image.jpg', size: '70x70', class: "img-side img-circle") %>
       <br>
       <div class="profile-name"><%= user.name %></div>
         <div class="profile-info">
