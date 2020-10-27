@@ -2,25 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-//-----共通設定-----
+/*-------------*/
+/*---共通設定---*/
+/*-------------*/
 
 .fields, .ubtn {
-  width: 300px;
   padding: 10px;
   border: solid 1px #ccc;
   border-radius: 5px;
 }
 
-.ubtn {
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-//---ログイン・新規登録画面---
+/* ログイン・新規登録画面 */
 
 .trans {
   transition: color 0.2s;
@@ -30,19 +22,7 @@
   }
 }
 
-//-----お問い合わせ画面-----
-
-.table {
-  th {
-    text-align: left;
-  }
-
-  td {
-    padding-left: 30px;
-  }
-}
-
-//-----プロフィール編集-----
+/* プロフィール編集 */
 
 .plf-img {
   font-weight: bold;
@@ -60,12 +40,7 @@
   }
 }
 
-.pos {
-  margin-left: 146px;
-}
-
-//-----ユーザーリスト-----
-
+/* ユーザーリスト */
 
 .table4 {
   width: 100%;
@@ -92,5 +67,109 @@
   .follow {
     width: 20%;
     text-align: center;
+  }
+
+  .fbtn {
+    width: 80px;
+  }
+}
+
+/* お問い合わせ画面 */
+
+.table {
+  th {
+    text-align: left;
+  }
+
+  td {
+    padding-left: 30px;
+  }
+}
+
+/* プロフィール編集 */
+
+.plf-img {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/*-----------------------------------*/
+/*---PC（960px）以上の際に適用される設定----*/
+/*-----------------------------------*/
+
+@media screen and (min-width: 960px) {
+
+  .fields, .ubtn {
+    width: 300px;
+  }
+
+  .ubtn {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  /* プロフィール編集 */
+
+  .pos {
+    margin-left: 146px;
+  }
+}
+
+/*-------------------------------------------*/
+/* タブレットサイズ（560px~959px）の際に適用される設定 */
+/*------------------------------------------*/
+
+@media screen and (min-width:560px) and (max-width: 959px) {
+
+  .fields, .ubtn {
+    width: 300px;
+  }
+
+  .ubtn {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  /* プロフィール編集 */
+
+  .pos {
+    margin-left: 146px;
+  }
+}
+
+/*------------------------------------------*/
+/* スマートフォンサイズ（559px）以下の際に適用される設定 */
+/*------------------------------------------*/
+
+@media screen and (max-width:559px) {
+
+  .fields, .ubtn {
+    width: 100%;
+  }
+
+  /* プロフィール編集 */
+
+  .table2 {
+    width: 100%;
+  }
+
+  /* ユーザーリスト */
+
+  .table4 {
+    font-size: 12px;
+
+    .int {
+      display: none;
+    }
+
+    .fbtn {
+      font-size: 10px;
+    }
   }
 }
