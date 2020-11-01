@@ -26,9 +26,9 @@ class Post < ApplicationRecord
   def self.sort(selection)
     case selection
     when 'new'
-      all.order(created_at: :DESC)
+      order(created_at: :DESC)
     when 'old'
-      all.order(created_at: :ASC)
+      order(created_at: :ASC)
     when 'likes'
       joins(:likes).group(:post_id).order('count(post_id) desc')
     end

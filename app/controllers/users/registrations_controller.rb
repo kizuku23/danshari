@@ -87,7 +87,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_guest
     if resource.email == 'guest@example.com'
-      redirect_to user_path(11), alert: 'ゲストユーザーは変更できません。'
+      redirect_to user_path(resource), alert: 'ゲストユーザーは変更できません。'
     end
   end
 end
