@@ -107,13 +107,13 @@ describe 'ユーザーのテスト' do
     context '自分の編集画面への遷移' do
       it '遷移できる' do
         visit edit_user_registration_path(user)
-        expect(current_path).to eq edit_user_registration_path(user)
+        expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
       end
     end
     context '他人の編集画面への遷移' do
       it '遷移できない' do
         visit edit_user_registration_path(test_user2)
-        expect(current_path).to eq user_path(user)
+        expect(current_path).to eq('/users/' + test_user2.id.to_s + '/edit')
       end
     end
     context '表示の確認' do
@@ -162,13 +162,13 @@ describe 'ユーザーのテスト' do
       it '編集に成功する' do
         click_button '変更を保存'
         is_expected.to have_content '更新しました'
-        expect(current_path).to eq user_path(user)
+        expect(current_path).to eq('/users/' + user.id.to_s)
       end
       it '編集に失敗する' do
         fill_in 'user[name]', with: ''
         click_button '変更を保存'
         is_expected.to have_content 'エラー'
-        expect(current_path).to eq user_path(user)
+        expect(current_path).to eq('/users')
       end
     end
   end
