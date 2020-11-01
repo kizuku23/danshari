@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     if params[:tag_name]
       @posts = Post.tagged_with("#{params[:tag_name]}").order(id: 'DESC').page(params[:page])
     else
-      @posts = Post.all.order(id: 'DESC').page(params[:page])
+      @posts = Post.order(id: 'DESC').page(params[:page])
     end
     @like = Like.new
   end
